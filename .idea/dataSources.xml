@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Rails GoalFunder: development" uuid="9bdb7cc6-91aa-484d-a259-f4fcf6dca6d2">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/GoalFunder</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails GoalFunder: test" uuid="7f75f860-f308-4995-bf93-455f21c6d51d">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/GoalFunder</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails GoalFunder: production" uuid="27bc274f-ff66-4c6b-8b5c-93b0ee94c6e4">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/GoalFunder</jdbc-url>
+    </data-source>
+  </component>
+</project>
