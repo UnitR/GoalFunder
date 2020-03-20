@@ -15,7 +15,7 @@
       <imported>true</imported>
       <remarks>$PROJECT_DIR$/config/database.yml</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/GoalFunder</jdbc-url>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/GoalFunder_Test</jdbc-url>
     </data-source>
     <data-source source="LOCAL" name="Rails GoalFunder: production" uuid="27bc274f-ff66-4c6b-8b5c-93b0ee94c6e4">
       <driver-ref>postgresql</driver-ref>
