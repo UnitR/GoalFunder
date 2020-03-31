@@ -1,5 +1,7 @@
+# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
 
+  resources :test_scaffolds
   # ROOT
   root to: 'home#index'
 
@@ -11,6 +13,8 @@ Rails.application.routes.draw do
   get 'home/show_fundraisers'
   get 'home/show_groups'
   get 'home/show_goals'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  # Resources
+  resources :goals
 
 end
