@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_29_132345) do
+ActiveRecord::Schema.define(version: 2020_03_31_141618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,18 @@ ActiveRecord::Schema.define(version: 2020_03_29_132345) do
     t.index ["user_id"], name: "index_payments_on_user_id"
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.jsonb "image_data"
+    t.bigint "user_id"
+    t.bigint "group_id"
+    t.bigint "goal_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["goal_id"], name: "index_photos_on_goal_id"
+    t.index ["group_id"], name: "index_photos_on_group_id"
+    t.index ["user_id"], name: "index_photos_on_user_id"
+  end
+
   create_table "user_group_memberships", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "group_id", null: false
@@ -91,6 +103,9 @@ ActiveRecord::Schema.define(version: 2020_03_29_132345) do
   add_foreign_key "organisation_details", "users"
   add_foreign_key "payments", "goals"
   add_foreign_key "payments", "users"
+  add_foreign_key "photos", "goals"
+  add_foreign_key "photos", "groups"
+  add_foreign_key "photos", "users"
   add_foreign_key "user_group_memberships", "groups"
   add_foreign_key "user_group_memberships", "users"
 end
