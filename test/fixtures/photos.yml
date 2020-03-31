@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  image_data: 
+  user: one
+  group: one
+  goal: one
+
+two:
+  image_data: 
+  user: two
+  group: two
+  goal: two

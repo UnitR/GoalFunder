@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>afa16a17-b302-43c6-9ea0-bd8755beaf05.SCHEMA:GoalFunder.public</OriginalElement>
+  <nodes>
+    <node x="-9.0" y="268.5">afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.user_group_memberships</node>
+    <node x="555.5" y="788.5">afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.goals</node>
+    <node x="275.5" y="-33.5">afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.organisation_details</node>
+    <node x="555.5" y="268.5">afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.payments</node>
+    <node x="275.5" y="246.5">afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.users</node>
+    <node x="835.5" y="-29.5">afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.ar_internal_metadata</node>
+    <node x="-32.5" y="1093.5">afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.schema_migrations</node>
+    <node x="275.5" y="788.5">afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.goal_owners</node>
+    <node x="-4.5" y="559.5">afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.groups</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.user_group_memberships" target="afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.groups">
+      <point x="0.0" y="91.5" />
+      <point x="0.0" y="-80.5" />
+    </edge>
+    <edge source="afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.goal_owners" target="afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.users">
+      <point x="0.0" y="-91.5" />
+      <point x="0.0" y="113.5" />
+    </edge>
+    <edge source="afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.goal_owners" target="afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.goals">
+      <point x="84.5" y="-0.0" />
+      <point x="-84.5" y="-0.0" />
+    </edge>
+    <edge source="afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.organisation_details" target="afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.users">
+      <point x="0.0" y="113.5" />
+      <point x="0.0" y="-113.5" />
+    </edge>
+    <edge source="afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.groups" target="afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.users">
+      <point x="84.5" y="-0.0" />
+      <point x="320.0" y="640.0" />
+      <point x="-40.0" y="113.5" />
+    </edge>
+    <edge source="afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.payments" target="afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.goals">
+      <point x="0.0" y="91.5" />
+      <point x="0.0" y="-91.5" />
+    </edge>
+    <edge source="afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.payments" target="afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.users">
+      <point x="-84.5" y="-0.0" />
+      <point x="84.5" y="-0.0" />
+    </edge>
+    <edge source="afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.user_group_memberships" target="afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.users">
+      <point x="89.0" y="-0.0" />
+      <point x="-84.5" y="-0.0" />
+    </edge>
+    <edge source="afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.goal_owners" target="afa16a17-b302-43c6-9ea0-bd8755beaf05.TABLE:GoalFunder.public.groups">
+      <point x="-84.5" y="-0.0" />
+      <point x="80.0" y="880.0" />
+      <point x="0.0" y="80.5" />
+    </edge>
+  </edges>
+  <settings layout="Directed Orthogonal" zoom="0.5728782287822878" x="482.0" y="488.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
