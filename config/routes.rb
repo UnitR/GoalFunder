@@ -15,5 +15,6 @@ Rails.application.routes.draw do
 
   # Resources
   resources :goals
+  resources :groups
 
 end
