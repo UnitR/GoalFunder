@@ -17,4 +17,8 @@ Rails.application.routes.draw do
   resources :goals
   resources :groups
 
+  # Additional routes
+  get '/groups/:id/add_member', to: 'groups#show_add_member', as: 'show_add_member'
+  post '/groups/:id/add_member', to: 'groups#add_group_member', as: 'add_member'
+
 end

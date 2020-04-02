@@ -1,10 +1,10 @@
 class GroupsController < ApplicationController
 
-  # Get Group information before CRUD actions
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  # Don't try to get Group record for the index page (show all)
+  before_action :set_group, except: :index
 
   # Ensure that the user has necessary attributes/permitions before allowing them to modify
-  # before_action :check_gorup, only: [:edit, :update, :destroy]
+  # before_action :check_gorup, only: [:edit, :update, :destroy, :add_member]
 
   # GET /groups
   # GET /groups.json
@@ -100,6 +100,44 @@ class GroupsController < ApplicationController
       format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # GET /groups/:id/add_member
+  # GET /groups/:id/add_member.json
+  def show_add_member
+  end
+
+  # POST /groups/:id/add_member
+  # POST /groups/:id/add_member
+  def add_group_member
+
+    # Ensure that other users cannot delete groups that do not belong to them
+    # Integrated with devise
+    # if @group.user_id = current_user.id
+    #   respond_to do |format|
+    #     format.html { redirect_to @group, notice: 'Only the owners of groups can add members to them.' }
+    #     format.json { render json: @group.errors, status: :unauthorized }
+    #   end
+    #   # Exit early as no need to do anything else
+    #   return
+    # end
+
+    # Create a group membership based on current state
+    @user = User.find_by username: params[:username]
+    @membership = User.user_group_memberships.new
+    @membership.group_id = @group.id
+
+    # Save the membership
+    respond_to do |format|
+      if @membership.save
+        format.html { redirect_to @group, notice: 'Member succesfully added to group.' }
+        format.json { render :show, status: :ok, location: @group }
+      else
+        format.html { render :show }
+        format.json { render json: @group.errors, status: :unprocessable_entity }
+      end
+    end
+
   end
 
   private
