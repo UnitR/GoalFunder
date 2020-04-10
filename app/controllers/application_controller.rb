@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
   # Specify how to handle NotAuthorized
-  rescue_from User::NotAuthorized, with: :user_not_authorized
+  # rescue_from User::NotAuthorized, with: :user_not_authorized
 
   private
 
