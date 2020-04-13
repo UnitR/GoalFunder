@@ -1,0 +1,43 @@
+<Navbar class="navbar navbar-expand-lg bg-dark">
+    <div class="container">
+         <a class="navbar-brand text-white" href="/">The Goal Funder</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nvbCollapse" aria-controls="nvbCollapse">
+                  <span class="navbar-toggler-icon"></span>
+             </button>
+      <div class="collapse navbar-collapse" >
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item pl-7">
+                 <a class="nav-link text-light" href="/"><i class="fa fa-circle fa-fw mr-1"></i>Dashboard</a>
+              </li>
+              <li class="nav-item  pl-1">
+                 <a class="nav-link text-light" href="/goals"><i class="fa fa-circle fa-fw mr-1 color-white"></i>My Goals</a>
+              </li>
+              <li class="nav-item pl-1">
+                 <a class="nav-link text-light" href="#"><i class="fa fa-circle fa-fw mr-1"></i>Friends</a>
+              </li>
+              <li class="nav-item pl-1">
+                     <a class="nav-link text-light" href="/groups"><i class="fa fa-circle fa-fw fa-rotate-180 mr-1"></i>My Donations</a>
+              </li>
+              <li class="nav-item pl-1">
+                <% if user_signed_in? %>
+                 Logged in as <strong><%= current_user.email %></strong>.
+
+                 <%= link_to 'Edit profile' , edit_user_registration_path %> |
+                 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                <% else %>
+                 <%= link_to "Sign up", new_user_registration_path %> |
+                 <%= link_to "Login", new_user_session_path %>
+                <% end %>
+
+                <% if notice %>
+                 <p class="alert alert-success"><%= notice %></p>
+                <% end %>
+                <% if alert %>
+                 <p class="alert alert-danger"><%= alert %></p>
+                <% end %>
+
+             </li>
+           </ul>
+     </div>
+</div>
+</Navbar>
