@@ -6,7 +6,7 @@
 
 
 
-  html, body{
+  .Dashboard{
 	height: 100%;
 	font-family: "Montserrat Alternates", sans-serif;
 	-webkit-font-smoothing: antialiased;
@@ -22,12 +22,7 @@ background-repeat: no-repeat;
 background-size: cover;
 }
 
-div, h1, h2, h3{
-  color: white;
-  //font-size: 70px;
-  text-align: center;
 
-}
 
 
 //transluscent box dateTime and Group Name
