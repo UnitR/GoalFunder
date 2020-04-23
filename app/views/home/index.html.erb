@@ -1,23 +1,7 @@
-<<<<<<< HEAD
-<head>
-  <style media="screen">
-    .sape{
-      position: absolute;
-      top:0;
-      right:0;
-      z-index: -1;
-    }
-  </style>
-</head>
-
-  <div class="sape">
-    <h1>Home#index</h1>
-    <p class="container-fluid" >Find me in app/views/home/index.html.erb</p>
-  </div>
-=======
 <%-         #   This is the Dashboard       #          -%>
 <br>
-<html >
+<html ><head>
+
   <body class="Dashboard" >
     <div class="container-fluid">
   	<div class="row">
@@ -100,5 +84,50 @@
 
 
     </div>
+
+    <svg
+       class="progress-ring"
+       width="120"
+       height="120">
+      <circle
+        class="progress-ring__circle"
+        stroke="white"
+        stroke-width="4"
+        fill="transparent"
+        r="52"
+        cx="60"
+        cy="60"/>
+    </svg>
+
+    <input
+      value="35"
+      type="number"
+      step="5"
+      min="0"
+      max="100"
+      placeholder="progress"
+    ></input>
+
+
+
+
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>My Chart.js Chart</title>
+</head>
+<body>
+  <div class="container"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
+    <canvas id="myChart" width="1140" height="570" style="display: block; width: 1140px; height: 570px;"></canvas>
+  </div>
+
+  <script>
+
+  </script>
+
+
+</body></html>
     </html>
->>>>>>> 7e355f72f2980a999faa4c0c5f210d89be11c81f
