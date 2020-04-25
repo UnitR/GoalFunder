@@ -3,15 +3,18 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #fafafa;
-}
 
+  //  background-color: rgba(67, 67, 67, 0.5);
+}
+navbar {
+  background-color: rgba(67, 67, 67, 0.5);
+}
 p {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #999;
+    //color: #999;
 }
 
 a, a:hover, a:focus {
@@ -22,19 +25,19 @@ a, a:hover, a:focus {
 
 #sidebar {
     /* don't forget to add all the previously mentioned styles here too */
-    background: #7386D5;
+      background-color: rgba(67, 67, 67, 0.7);
     color: #fff;
     transition: all 0.3s;
 }
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background-color: rgba(67, 67, 67, 0.9);
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-  
+
 }
 
 #sidebar ul p {

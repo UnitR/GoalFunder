@@ -28,7 +28,6 @@ document.addEventListener("turbolinks:load", function() {
   // Here goes your jQuery ready code
   $('#sidebarCollapse').on('click', function () {
       $('#sidebar').toggleClass('active');
-      console.log("MouseLeave!");
   });
 
 });
