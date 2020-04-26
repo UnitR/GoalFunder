@@ -1,6 +1,48 @@
-.sape{
+
+//just the background image
+body{
+  background-image: url('https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+}
+
+//this css just fixes the position of the forms-----------------------------------------
+.form{
   position: absolute;
   top:80px;
-  right:45%;
-  z-index: -1;
+  right:38%;
+
 }
+.signup{
+  position: absolute;
+  top:80px;
+  right:38%;
+
+}
+.password{
+  position: absolute;
+  top:100px;
+  right:41%;
+
+}
+//----------------------------------------------------------------------------------------
+
+
+
+
+//this is the css for the styling of the forms--------------------------------------------
+//icons near the fields
+.input-group-prepend span{
+width: 50px;
+background-color: #BFE5FF;
+color: black;
+border:0 !important;
+}
+
+.card{
+width: 400px;
+background-color: rgba(169, 184, 194,0.5) !important;
+}
+.card-header{
+
+background-color: rgba(169, 184, 194,0.6) !important;
+}
+//-----------------------------------------------------------------------------------------------

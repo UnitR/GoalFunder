@@ -25,14 +25,14 @@ a, a:hover, a:focus {
 
 #sidebar {
     /* don't forget to add all the previously mentioned styles here too */
-      background-color: rgba(67, 67, 67, 0.7);
+      background-color:rgba(38, 54, 72, 0.8);
     color: #fff;
     transition: all 0.3s;
 }
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background-color: rgba(67, 67, 67, 0.9);
+    background-color:rgba(38, 54, 72, 0.9);
 }
 
 #sidebar ul.components {
@@ -87,13 +87,7 @@ a[data-toggle="collapse"] {
     position: relative;
 }
 
-.dropdown-toggle::after {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-}
+
 
 @media (max-width: 768px) {
     #sidebar {
