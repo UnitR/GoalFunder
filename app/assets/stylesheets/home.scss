@@ -5,16 +5,19 @@
 @import 'application.scss';
 
 
+body{
+  background-image: url('https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
 
+}
   .Dashboard{
 	height: 100%;
 	font-family: "Montserrat Alternates", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
-background-image: url('https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+
 //background-image: url('https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
 background-color: black;
-height:100%;
+
 badiv, h1, h2, h3{
     color: white;
   }background-position: center;
