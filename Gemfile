@@ -51,3 +51,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Shrine gem for image file management
 gem "shrine", "~> 3.0"
+
+# PayPal SDK gem
+gem 'paypal-checkout-sdk'
