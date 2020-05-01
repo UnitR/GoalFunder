@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_19_182118) do
+ActiveRecord::Schema.define(version: 2020_05_01_195936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "controllers", force: :cascade do |t|
+    t.string "testcontroller"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "goal_owners", force: :cascade do |t|
     t.bigint "user_id"
@@ -59,6 +65,7 @@ ActiveRecord::Schema.define(version: 2020_04_19_182118) do
     t.float "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "pp_id"
     t.index ["goal_id"], name: "index_payments_on_goal_id"
     t.index ["user_id"], name: "index_payments_on_user_id"
   end

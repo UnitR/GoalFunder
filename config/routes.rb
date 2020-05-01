@@ -1,6 +1,11 @@
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
 
+  get 'payment_processing/make_payment', to: 'payment_processing#make_payment'
+  get 'payment_processing/record_payment'
+  get 'payment_processing/view_payment'
+  get 'payment_processing/make_payment'
+  get 'payment_processing/record_transaction'
   devise_for :users
   # ROOT
   root to: 'home#index'

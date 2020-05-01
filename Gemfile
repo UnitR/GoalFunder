@@ -54,3 +54,6 @@ gem "shrine", "~> 3.0"
 
 # PayPal SDK gem
 gem 'paypal-checkout-sdk'
+
+# Figaro for managing ENV more easily
+gem "figaro"
