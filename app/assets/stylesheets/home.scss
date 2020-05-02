@@ -12,8 +12,13 @@
     padding-left: 5%;
  }
 
-
-
+//this css get the dashboard in place so it doesnt appear bellow the sidebar
+ #content{
+   position: absolute;
+   top:80px;
+   left:10%;
+ }
+ ///-----------------------------------------------------------------------
   .Dashboard{
 	height: 100%;
 	font-family: "Montserrat Alternates", sans-serif;
