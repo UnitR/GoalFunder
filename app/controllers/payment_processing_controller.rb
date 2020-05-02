@@ -8,69 +8,60 @@ class PaymentProcessingController < ApplicationController
 
   def make_payment
 
+    # Set up payment object
     @payment = Payment.new(payment_params)
 
-    # Create request with the specified parameters
-    request = PayPalCheckoutSdk::Orders::OrdersCreateRequest::new
-    request.request_body({
-                             intent: "CAPTURE",
-                             purchase_units: [
-                                 {
-                                     amount: {
-                                         currency_code: "GBP",
-                                         value: @payment.amount.to_s
-                                     }
-                                 }
-                             ]
-                         })
+    # Perform payment request with PayPal
+    do_request()
 
-    begin
+    # Handle the different scenarios of payment
+    # If failed due to payment method being rejected, retry again
+    # If failed for any other reason, return error response
+    if @response && @response.result.status == "CREATED" then
 
-      # Perform the specified request from above
-      response = PayPalClient.client.execute(request)
+      @payment.pp_id = response.result.id
 
-      if response.result.status == "CREATED" then
-
-        @payment.pp_id = response.result.id
-
-        # Save the membership
-        respond_to do |format|
-          if @payment.save then
-            format.html { redirect_to payment_processing_view_payment_path, notice:
-                "Successfully contributed to goal '#{Goals.find(@payment.goal_id).name}'!" }
-            format.json { render :show, status: :ok, location: @payment }
-          else
-            format.html { render :show }
-            format.json { render json: @payment.errors, status: :unprocessable_entity }
-          end
+      # Save the membership
+      respond_to do |format|
+        if @payment.save then
+          format.html { redirect_to payment_processing_view_payment_path, notice:
+              "Successfully contributed to goal '#{Goals.find(@payment.goal_id).name}'!" }
+          format.json { render :show, status: :ok, location: @payment }
+        else
+          format.html { render :show }
+          format.json { render json: @payment.errors, status: :unprocessable_entity }
         end
+      end
 
-      else
+    elsif @response && @response.result.status = 'INSTRUMENT_DECLINED'
 
-        # Show error
-        # Should not really happen with the current code
-        respond_to do |format|
-          format.html { render :"goals/show/#{@payment.goal_id}", notice: 'Could not process payment with PayPal.'}
-          format.json { render json: "Could not process payment with PayPal.\r\n#{response.result}", status: :unprocessable_entity }
+      # Retry until payment method not refused
+      is_refused = true
+      while is_refused
+
+        # TODO: can this get stuck in an infinite loop?
+        if do_request() && @response.result.stats = 'INSTRUMENT_DECLINED'
+          is_refused = true
+        else
+          is_refused = false
         end
 
       end
 
-    rescue => e
+    else
 
-      if e.status_code = 401
-        # Retry whole request if not authorised. Should then be able to get a new access token
-        self.make_payment
-      end
-
-      # Not handling other errors currently. Just show failed to the user.
+      # Show error
       # Should not really happen with the current code
       respond_to do |format|
-        format.html { render :"goals/show/#{@payment.goal_id}", notice: "Could not process payment with PayPal.\r\nStatus code: #{e.status_code}"}
+        format.html { render :"goals/show/#{@payment.goal_id}", notice: 'Could not process payment with PayPal.'}
         format.json { render json: "Could not process payment with PayPal.\r\n#{response.result}", status: :unprocessable_entity }
+
+        # Log in server console for now
+        puts @response_err.status_code
       end
 
     end
+
   end
 
   def view_payment
@@ -93,6 +84,36 @@ class PaymentProcessingController < ApplicationController
 
     # Check if user ID matches group owner's ID
     raise User::NotAuthorized unless current_user.id = @payment.user_id
+
+  end
+
+  def do_request
+
+    # Create request with the specified parameters
+    request = PayPalCheckoutSdk::Orders::OrdersCreateRequest::new
+    request.request_body({
+                             intent: "CAPTURE",
+                             purchase_units: [
+                                 {
+                                     amount: {
+                                         currency_code: "GBP",
+                                         value: @payment.amount.to_s
+                                     }
+                                 }
+                             ]
+                         })
+
+    begin
+
+      # Perform the specified request from above
+      @response = PayPalClient.client.execute(request)
+      return true
+
+    rescue => e
+      @request_err = e
+      return false
+
+    end
 
   end
 
