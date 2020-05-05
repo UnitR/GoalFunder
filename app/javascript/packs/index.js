@@ -41,6 +41,7 @@ $(document).ready(function () {
 });
 
 
+
 //Chart
 $(document).ready(function(){
 let myChart = document.getElementById('myChart').getContext('2d');

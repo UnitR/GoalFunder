@@ -49,20 +49,32 @@
     <! left side of Row ->
     <div class="col-md-4">
 		<div class="box_square">
-			<h1 class="text">
+      <br>
+			<h1 class="text" style="margin: 3.5%">
+
 			Money Saved <br>
 			</h1>
-      <svg class="progress-ring">
+      <svg class="progress-ring" viewBox="0 0 140 120" preserveAspectRatio="xMinYMin meet">
 
-                <circle
-                  class="progress-ring__circle"
-                  r= "120">
+        <circle
+          class="progress-ring__circle"
+          r= "35%"> </circle>
+        <circle
+          class="progress-ring__circle2"
+          r= "35%"> </circle>
+
+
+                  <text  x="32%" y="30%" text-anchor="middle" fill="white" font-size="10px" font-family="Arial" dy=".3em">£
+                     <tspan class="em" x="54%" y="37%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">45 000</tspan>
+                     <tspan class="em" x="52%" y="43%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">_____</tspan>
+                     <tspan class="em" x="50%" y="65%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">50 000</tspan>
+                  </text>
+
               </svg>
 
+
               <BR>
-			<button type="button" class="btn btn-success" style="margin: 5%">
-				view more
-			</button>
+			<button type="button" class="btn btn-light"> View</button>
 
 		</div>
     </div>
@@ -76,6 +88,7 @@
                 <chartjs class="chartjs-hidden-iframe" tabindex="-1" ></chartjs>
                 <canvas id="myChart"  width="1140" height="700" class="chart-dm"></canvas></div>
 
+
               </div>
 
     </div>
@@ -84,8 +97,9 @@
 
 </body>
   </html>
+
   <input
-  value="85"
+  value="18"
   type="number"
   step="5"
   min="0"

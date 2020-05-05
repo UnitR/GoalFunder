@@ -95,8 +95,8 @@ background-attachment: fixed;
 
 
   .progress-ring {
-    border: 0.5px solid rgba(67, 67, 67, 0.5);
-    height: 300px;;
+  //  border: 0.5px solid rgba(67, 67, 67, 0.5);
+
   }
 
   .progress-ring__circle {
@@ -105,11 +105,28 @@ background-attachment: fixed;
     transform: rotate(-90deg);
     transform-origin: 50% 50%;
     stroke: white;
-    stroke-width: 8;
+    stroke-width: 1;
+    stroke-opacity: 1;
+    fill: black;
+    fill-opacity: 0.2;
+  //  background: url('sky_blur2');
+    cx: 50%;
+    cy: 50%;
+    //margin: 5%;
+  }
+
+  .progress-ring__circle2 {
+    transition: 0.35s stroke-dashoffset;
+    align-self: center;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke: black;
+    stroke-width: 1.5;
+    stroke-opacity: 0.2;
     fill: transparent;
-    cx: 60;
-    cy: 60;
-    margin: 5%;
+    fill-opacity: 0.2;
+    cx: 50%;
+    cy: 50%;
   }
 
 
@@ -143,12 +160,24 @@ display: block;
       margin-left:  0% ;
       margin-bottom: 0% ;
       margin-right: 0%;
-      margin: 2%;
+      margin: 1%;
     //  width: 775px;
     //  height: 500px;
 
     };
 
-.text{
-  margin: 5px;
+    .btn-light {
+      background-color: solid rgba(67, 67, 67, 1);
+      border-color: #ccc;
+      margin: 5%;
+    }
+
+
+    .row.display-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.row.display-flex > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
 }
