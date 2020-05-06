@@ -66,7 +66,7 @@ let massPopChart = new Chart(myChart, {
         617594,
 
       ],
-      backgroundColor:'#bfe5ff',
+      backgroundColor:"rgba(191, 229, 255, 0.8)",
 
       borderWidth:4,
       borderColor:'#FFFFFF',

@@ -12,15 +12,7 @@
     padding-left: 5%;
     padding-bottom: 5%;
  }
- #page-wrap {
-   background: url(images/bg-blurry.jpg) no-repeat fixed;
-   width: 500px; margin: 40px auto;
-   border: 0.5px solid rgba(67, 67, 67, 0.5);
-   top: 0;
-   left: 0;
-   //width: 100%;
-   height: 100%;
- }
+
 //this css get the dashboard in place so it doesnt appear bellow the sidebar
  #content{
    position: absolute;
@@ -33,7 +25,7 @@
 	font-family: "Montserrat Alternates", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
-background-image: $background;
+background-image: url('sky');
 background-color: black;
 
   background-position: center;
@@ -63,9 +55,9 @@ background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  border-radius: 30px / 30px;
+  border-radius: 5px / 5px;
   border: 2px solid rgba(67, 67, 67, 0.5);
-  margin-top: 0.5%;
+  margin-top: 2%;
 
 }
 
@@ -75,7 +67,7 @@ background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  border-radius: 30px / 30px;
+  border-radius: 5px / 5px;
   border: 2px solid rgba(67, 67, 67, 0.5);
   margin: 10px auto;
   }
@@ -87,7 +79,7 @@ background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    border-radius: 30px / 30px;
+    border-radius: 5px / 5px;
     border: 2px solid rgba(67, 67, 67, 0.5);
     margin: 10px auto;
   }
@@ -180,4 +172,44 @@ display: block;
 .row.display-flex > [class*='col-'] {
   display: flex;
   flex-direction: column;
+}
+
+
+//button
+.btn-light  {color:#Ffffff;
+  background: rgba(67, 67, 67, 0.7);
+  border-width:2px;
+  border-style: solid;
+  border-color: #454545;
+  position:relative;
+  margin:1em;
+  width: 50%;
+  display:inline-block;
+  padding:0.5em 1em;
+  transition:all 0.3s ease-in-out;
+  text-align:center;
+font-family:comfortaa;font-weight:bold}
+
+.btn-light:before, .btn-light:after {content:'';display:block;position:absolute;border-color:#FFFF;box-sizing:border-box;border-style:solid;width:1em;height:1em;transition:all 0.3s ease-in-out}
+.btn-light:before {top:-6px;left:-6px;border-width:2px 0 0 2px;z-index:5;}
+.btn-light:after {bottom:-6px;right:-6px;border-width:0 2px 2px 0;}
+.btn-light:hover:before, .btn-light:hover:after {width:calc(100% + 12px);
+  height:calc(100% + 12px);border-color:#fff}
+.btn-light:hover {color:#353535;background-color:#fff;border-color:#fff}
+.panel {max-width:960px;text-align:center;position:relative;margin:auto;}
+
+
+//shapes
+.group-name-container {
+float: left;
+margin: 2%;
+margin-top: 5%;
+  /* Note that percentages work as well as px */
+}
+
+
+.shape-container{
+  background-image: url('sky');
+ background-repeat: no-repeat;
+ background-size: cover;
 }

@@ -16,13 +16,13 @@
 <body  class="Dashboard" >
 
 <div id ="content" class="container-fluid">
-	<div class="row">
+	<div class="row justify-content-center">
 		<div class="col-md-12">
       <!- first box begins here ->
       <div class="box_wide">
-			<div class="row">
+			<div class="row justify-content-center">
 
-				<div class="col-md-4">
+				<div class="col-md-4 my-auto">
 
           <!- month and Year ->
           <h3>
@@ -33,10 +33,34 @@
 
 
 				</div>
-				<div class="col-md-8">
-					<h3>
-					group name
-					</h3>
+				<div class="col-md-8 my-auto">
+
+<span>
+              <svg class="group-name-container" width="120" height="140" style="margin-top: 5%; margin-left: 5%">
+  <polygon  points="0 50, 75 0, 40 50, 75 100" style="fill: black; fill-opacity: 0.7; stroke:black;stroke-width:2" />
+</svg>
+
+
+
+                <h3 class="group-name-container" style="font-size: 70px;" >
+
+                [Group Name] </h3>
+
+
+
+              <svg class="group-name-container" width="120" height="140" style="margin-top: 5%">
+  <polygon points="100 50, 25 0, 60 50, 25 100" style="fill: black; fill-opacity: 0.7; stroke:black;stroke-width:2" />
+</svg>
+
+</span>
+
+
+
+
+
+
+
+
 				</div>
         </div>
 			</div>
@@ -49,8 +73,12 @@
     <! left side of Row ->
     <div class="col-md-4">
 		<div class="box_square">
+
       <br>
-			<h1 class="text" style="margin: 3.5%">
+
+			<h1 class="text" style="  text-align: center;
+        font-size:55px;
+        padding: 0.25%;">
 
 			Money Saved <br>
 			</h1>
@@ -74,8 +102,7 @@
 
 
               <BR>
-			<button type="button" class="btn btn-light"> View</button>
-
+			<button type="button" class="btn btn-light"> More Info</button>
 		</div>
     </div>
 
@@ -99,7 +126,7 @@
   </html>
 
   <input
-  value="18"
+  value="70"
   type="number"
   step="5"
   min="0"

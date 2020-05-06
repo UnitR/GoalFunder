@@ -23,11 +23,17 @@ $color3: #f7f7f8;
 $color4: #a9b8c2;
 $color5: #bfe5ff;
 
-$background: url('https://images.pexels.com/photos/37728/pexels-photo-37728.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+$background: url('sky');
+$background_blur: url('sky_blur');
+$background_darkBlur: url('sky_blur2');
+
+
+/*$font:  font name */ ;
+
+
+
+
 div{
   color: white;
-  //font-size: 70px;
   text-align: center;
-  //border: 2px solid blue;
-
 }
