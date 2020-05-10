@@ -22,4 +22,8 @@ class HomeController < ApplicationController
 
   def about
   end
+
+  def whatever_view_this_is
+  @home_banner  = true
+end
 end

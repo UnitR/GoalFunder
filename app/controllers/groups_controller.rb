@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
 
   # Don't try to get Group record for the index page (show all)
   before_action :set_group, except: :index
-
+  layout "secondary-page"
   # Ensure that the user has necessary attributes/permitions before allowing them to modify
   # before_action :check_gorup, only: [:edit, :update, :destroy, :add_member]
 
@@ -15,6 +15,7 @@ class GroupsController < ApplicationController
     # @groups = current_user.groups.all
 
   end
+
 
   # GET /groups/1
   # GET /groups/1.json
@@ -159,5 +160,7 @@ class GroupsController < ApplicationController
     raise User::NotAuthorized unless current_user.id = @group.user_id
 
   end
+
+
 
 end

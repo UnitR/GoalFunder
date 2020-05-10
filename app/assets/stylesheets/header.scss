@@ -1,6 +1,12 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
 
+$color1: #263648;
+$color2: #bdc6d1;
+$color3: #f7f7f8;
+$color4: #a9b8c2;
+$color5: #bfe5ff;
+
 body {
     font-family: 'Poppins', sans-serif;
 
@@ -105,3 +111,61 @@ a[data-toggle="collapse"] {
         margin-left: 0;
     }
 }
+
+
+
+.nav{
+  margin: 3px auto;
+  margin-left: 17%;
+
+}
+.pageNavBar{
+  background-color: $color1;
+  float: left;
+   border: 1px solid #121314;
+   border-top: 1px solid #2b2e30;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 0px;
+   overflow: hidden;
+   width:100%;
+   min-width: 650px;
+   position: relative;
+}
+
+.pageDescriptionContent{
+    margin: 20px auto;
+    margin-left: 17%;
+    padding-bottom: 5px auto;
+    text-align: left;
+    height: 100%;
+}
+
+.pageDescription{
+//  height: 400px ;
+}
+
+.btn-desc  {
+  color:#000000;
+  background: $color5;
+  border-width:2px;
+  border-style: solid;
+  border-color: #454545;
+//  position:relative;
+//  margin:1em;
+  float: left;
+  margin: 12px auto;
+  margin-left: 10%;
+  width: 10%;
+    //display:inline-block;
+  padding:0.5em 1em;
+  transition:all 0.3s ease-in-out;
+  text-align:center;
+font-weight:bold;
+}
+
+.btn-desc:before, .btn-desc:after {content:'';display:block;position:absolute;border-color:#FFFF;box-sizing:border-box;border-style:solid;width:1em;height:1em;transition:all 0.3s ease-in-out}
+.btn-desc:before {top:-6px;left:-6px;border-width:2px 0 0 2px;z-index:5;}
+.btn-desc:after {bottom:-6px;right:-6px;border-width:0 2px 2px 0;}
+.btn-desc:hover {color:#353535;background-color:#fff;border-color:#fff}
+.panel {max-width:960px;text-align:center;position:relative;margin:auto;}

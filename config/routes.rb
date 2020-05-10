@@ -13,11 +13,15 @@ Rails.application.routes.draw do
   get 'home/show_fundraisers'
   get 'home/show_groups'
   get 'home/show_goals'
-  get 'about', to: 'home#about'
+  get 'about', to: 'goals#about', foo: 'about'
 
   # Resources
   resources :goals
   resources :groups
+
+  # goal controller routing
+  get 'goals/index', to: 'goals#index', foo: 'groupGoal'
+
 
   # Additional routes
   get '/groups/:id/add_member', to: 'groups#show_add_member', as: 'show_add_member'
