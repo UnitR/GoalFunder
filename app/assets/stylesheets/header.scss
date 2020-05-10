@@ -143,20 +143,31 @@ a[data-toggle="collapse"] {
 
 .pageDescription{
 //  height: 400px ;
+float: left;
 }
+
+.desc-container{
+text-align: left;
+width: 950px;
+float: left;
+//border: solid blue;
+}
+
+.btn-container{
+float: left;
+width: 12%;
+margin: 1%;
+//border: solid red;
+}
+
 
 .btn-desc  {
   color:#000000;
   background: $color5;
   border-width:2px;
-  border-style: solid;
   border-color: #454545;
-//  position:relative;
-//  margin:1em;
-  float: left;
   margin: 12px auto;
-  margin-left: 10%;
-  width: 10%;
+  width: 100%;
     //display:inline-block;
   padding:0.5em 1em;
   transition:all 0.3s ease-in-out;
