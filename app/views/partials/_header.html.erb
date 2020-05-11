@@ -54,7 +54,7 @@
 </div>
 </Navbar>
 
-<% if if params[:action] == 'about'  %>
+<% if params[:action] == 'about'  %>
 <%= render "partials/secondaryHeader" %>
 <% end %>
 
@@ -82,38 +82,3 @@
         </ul>
 </nav>
 </div>
-
-<!-- rending headers for different views -->
-<!-- On page navbar2 -->
-<% if @home_banner %>
-
-<div class="pageNavBar">
-<ul class="nav">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Personal Goals</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Group Goals</a>
-  </li>
-</ul>
-
-
-</div>
-
-<div class="pageDescription">
-
-<div class="pageDescriptionContent" style="float:left;">
-  <h1>
-    Group Goals
-  </h1>
-  <p>
-    This section of displays the contains information about how much you have saved towards a certain goal. Such as your Recipts towards a goal, <br> a list of your personal goals and deadline
-    towards the goal. This information is essential to keeping track of your progress.
-  </p>
-</div>
-
-	<button type="button" class="btn btn-desc" style="margin-top: 1.75%;"> More Info</button>
-  <button type="button" class="btn btn-desc"> More Info</button>
-</div>
-
-<% end %>
