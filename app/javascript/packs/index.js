@@ -41,39 +41,33 @@ $(document).ready(function () {
 });
 
 
+
 //Chart
 $(document).ready(function(){
 let myChart = document.getElementById('myChart').getContext('2d');
 
 // Global Options
-Chart.defaults.global.defaultFontFamily = 'Lato';
+Chart.defaults.global.defaultFontFamily = 'Arial';
 Chart.defaults.global.defaultFontSize = 18;
 Chart.defaults.global.defaultFontColor = '#777';
 
 let massPopChart = new Chart(myChart, {
   type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
   data:{
+    fontColor: '#FFFFFF',
     labels:['2015', '2016', '2017', '2018', '2019', '2020'],
     datasets:[{
-      label:'Population',
+      label:'Money Saved',
       data:[
-        617594,
+        105162,
         181045,
         153060,
-        106519,
-        105162,
-        95072
+        181045,
+        617594,
+
       ],
-      //backgroundColor:'green',
-      backgroundColor:[
-        'rgba(255, 99, 132, 0.6)',
-        'rgba(54, 162, 235, 0.6)',
-        'rgba(255, 206, 86, 0.6)',
-        'rgba(75, 192, 192, 0.6)',
-        'rgba(153, 102, 255, 0.6)',
-        'rgba(255, 159, 64, 0.6)',
-        'rgba(255, 99, 132, 0.6)'
-      ],
+      backgroundColor:"rgba(191, 229, 255, 0.8)",
+
       borderWidth:4,
       borderColor:'#FFFFFF',
       hoverBorderWidth:3,
@@ -81,11 +75,37 @@ let massPopChart = new Chart(myChart, {
     }]
   },
   options:{
+    scales: {
+        yAxes: [{
+          display: false,
+            ticks: {
+                display: false
+            },
+            gridLines: {
+              display: false,
+            //  color: "#FFFFFF"
+            }
+
+        }],
+
+        xAxes: [{
+          gridLines: {
+            display: true,
+            //color: "#FFFFF"
+          },
+          ticks: {
+          fontColor: 'white'
+            //lineheight: 1.2
+        }
+
+        }]
+    },
+
     title:{
-      display:true,
+      display:false,
       text:'Savings',
       fontColor: '#FFFFFF',
-      fontSize:40
+      fontSize:60
     },
     legend:{
       display:false,
@@ -104,7 +124,7 @@ let massPopChart = new Chart(myChart, {
     },
     tooltips:{
       enabled:true
-    }
-  }
+    },
+}
 });
 });

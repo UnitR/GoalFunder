@@ -1,4 +1,4 @@
-<%-         #   This is the Dashboard       #          -%>
+<%-         #   This is the Dashboard     ALMOST FINISHED JUST NEED TO ADD RUBY FUNCTIONS  #          -%>
 <html lang="en"><head>
   <meta charset="UTF-8">
 
@@ -16,27 +16,51 @@
 <body  class="Dashboard" >
 
 <div id ="content" class="container-fluid">
-	<div class="row">
+	<div class="row justify-content-center">
 		<div class="col-md-12">
       <!-- first box begins here -->
       <div class="box_wide">
-			<div class="row">
+			<div class="row justify-content-center">
 
-				<div class="col-md-3">
+				<div class="col-md-4 my-auto">
 
           <!-- month and Year -->
           <h3>
           <br><br>
-          <h1 class="theDate" id=date style=""></h1>
+          <h1 class="theDate" id=date></h1>
           <br><br><br>
 					</h3>
 
 
 				</div>
-				<div class="col-md-9">
-					<h3>
-					group name
-					</h3>
+				<div class="col-md-8 my-auto">
+
+<span>
+              <svg class="group-name-container" width="120" height="140" style="margin-top: 5%; margin-left: 5%">
+  <polygon  points="0 50, 75 0, 40 50, 75 100" style="fill: black; fill-opacity: 0.7; stroke:black;stroke-width:2" />
+</svg>
+
+
+
+                <h3 class="group-name-container" style="font-size: 70px;" >
+
+                [Group Name] </h3>
+
+
+
+              <svg class="group-name-container" width="120" height="140" style="margin-top: 5%">
+  <polygon points="100 50, 25 0, 60 50, 25 100" style="fill: black; fill-opacity: 0.7; stroke:black;stroke-width:2" />
+</svg>
+
+</span>
+
+
+
+
+
+
+
+
 				</div>
         </div>
 			</div>
@@ -46,53 +70,82 @@
   <!-- Second Row -->
 	<div class="row">
 
+<<<<<<< HEAD
     <!-- left side of Row -->
     <div class="col-md-3">
+=======
+    <! left side of Row ->
+    <div class="col-md-4">
+>>>>>>> 7675cafb156d80ddcef7d29c7d3024af4494b887
 		<div class="box_square">
-			<h3 class="text-center">
-				Saving Team
-			</h3>
-      <svg
-                class="progress-ring"
-                width="400"
-                height="400"
-                margin-left= "200%">
 
-                <circle
-                  class="progress-ring__circle"
-                  stroke="white"
-                  stroke-width="4"
-                  fill="transparent"
-                  r="90"
-                  cx="120"
-                  cy="120"
-                  />
+      <br>
+
+			<h1 class="text" style="  text-align: center;
+        font-size:55px;
+        padding: 0.25%;">
+
+			Money Saved <br>
+			</h1>
+      <svg class="progress-ring" viewBox="0 0 140 120" preserveAspectRatio="xMinYMin meet">
+
+        <circle
+          class="progress-ring__circle"
+          r= "35%"> </circle>
+        <circle
+          class="progress-ring__circle2"
+          r= "35%"> </circle>
+
+
+                  <text  x="32%" y="30%" text-anchor="middle" fill="white" font-size="10px" font-family="Arial" dy=".3em">£
+                     <tspan class="em" x="54%" y="37%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">45 000</tspan>
+                     <tspan class="em" x="52%" y="43%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">_____</tspan>
+                     <tspan class="em" x="50%" y="65%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">50 000</tspan>
+                  </text>
+
               </svg>
 
-              <input
-              value="35"
-              type="number"
-              step="5"
-              min="0"
-              max="100"
-              style="color: black"
-            ></input>
-			<button type="button" class="btn btn-success">
-				view more buttonn
-			</button>
+
+              <BR>
+			<button type="button" class="btn btn-light"> More Info</button>
 		</div>
     </div>
 
+<<<<<<< HEAD
     <!--- right side of Row --->
     <div class="col-md-9">
 		<div class="box_square2">
+=======
+    <!- right side of Row ->
+    <div class="col-md-8">
+
+
+ <div class="box_square2">
+>>>>>>> 7675cafb156d80ddcef7d29c7d3024af4494b887
       <div class="chart-container">
                 <chartjs class="chartjs-hidden-iframe" tabindex="-1" ></chartjs>
                 <canvas id="myChart"  width="1140" height="700" class="chart-dm"></canvas></div>
-		</div>
+
+
+              </div>
+
     </div>
 	</div>
 </div>
 
 </body>
   </html>
+<!-  temp value for progress ring value - use this to adjust the progress ring.  in future the ring should adjust basaed of % of the Goals sum completed. ->
+  <input
+  value="70"
+  type="number"
+  step="5"
+  min="0"
+  max="100"
+  style="color: black"
+></input
+
+<% if @home_banner %>
+ <h1> FUCKING NERD </h1>
+
+ <% end %>

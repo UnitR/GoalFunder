@@ -19,4 +19,11 @@ class HomeController < ApplicationController
 
   def show_goals
   end
+
+  def about
+  end
+
+  def whatever_view_this_is
+  @home_banner  = true
+end
 end
