@@ -8,15 +8,17 @@
              </button>
       <div class="collapse navbar-collapse" >
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item pl-7">
-                 <a class="nav-link text-light" href="/"><i class="fa fa-circle fa-fw mr-1"></i>Dashboard</a>
-              </li>
-              <li class="nav-item  pl-1">
-                 <a class="nav-link text-light" href="/goals"><i class="fa fa-circle fa-fw mr-1 color-white"></i>My Goals</a>
-              </li>
-              <li class="nav-item pl-1">
-                 <a class="nav-link text-light" href="#"><i class="fa fa-circle fa-fw mr-1"></i>Friends</a>
-              </li>
+              <% if user_signed_in? %>
+                <li class="nav-item pl-7">
+                   <a class="nav-link text-light" href="/"><i class="fa fa-circle fa-fw mr-1"></i>Dashboard</a>
+                </li>
+                <li class="nav-item  pl-1">
+                   <a class="nav-link text-light" href="/goals"><i class="fa fa-circle fa-fw mr-1 color-white"></i>My Goals</a>
+                </li>
+                <li class="nav-item pl-1">
+                   <a class="nav-link text-light" href="#"><i class="fa fa-circle fa-fw mr-1"></i>Friends</a>
+                </li>
+              <% end %>
               <li class="nav-item pl-1">
                      <a class="nav-link text-light" href="/groups"><i class="fa fa-circle fa-fw fa-rotate-180 mr-1"></i>About Us</a>
               </li>
@@ -52,25 +54,19 @@
 
 
 <!-- Sidebar -->
+<% if user_signed_in? %>
 <div class="wrapper">
-
-
 <nav id="sidebar">
-  <div class="sidebar-header">
-        <h3>Bootstrap Sidebar</h3>
-  </div>
       <ul class="list-unstyled components">
-
+              <li><h3><%= current_user.username %></h3></li>
               <li>
-                  <a href="#">About</a>
+                  <a href="#"><i class="fa fa-circle fa-fw mr-1"></i>MY ACCOUNT</a>
               </li>
 
               <li>
-                  <a href="#">Portfolio</a>
-              </li>
-              <li>
-                  <a href="#">Contact</a>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete %>
               </li>
         </ul>
 </nav>
 </div>
+<% end %>

@@ -75,33 +75,29 @@ ul ul a {
 
 
 #sidebar {
+    position: absolute;
+
     min-width: 250px;
     max-width: 250px;
     min-height: 100vh;
-
+    margin-left: 82.62%;
 }
 
 #sidebar.active {
-    margin-left: -250px;
+    margin-left: 100%;
 }
 
 a[data-toggle="collapse"] {
     position: relative;
 }
 
-.dropdown-toggle::after {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-}
+
 
 @media (max-width: 768px) {
     #sidebar {
-        margin-left: -250px;
+        margin-left: 40px;
     }
     #sidebar.active {
-        margin-left: 0;
+        margin-right: 0;
     }
 }
