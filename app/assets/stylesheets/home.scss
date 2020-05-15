@@ -163,7 +163,15 @@ display: block;
     //  height: 500px;
 
     };
+    .container-fluid {
+      // border: 0.5px solid rgba(0, 0, 67, 0.5);
+        position: relative;
+        margin-left: -40px ;
 
+      //  width: 775px;
+      //  height: 500px;
+
+      };
     .btn-light {
       background-color: solid rgba(67, 67, 67, 1);
       border-color: #ccc;
@@ -226,4 +234,37 @@ div{
   color: white;
   text-align: center;
   //border: solid blue;
+}
+
+
+//--------------------------------------------------------------------------------------------------
+//MY account page
+#bubbles{
+  position: absolute;
+  top: 80px;
+  left: 65px;
+}
+.prev-account-item i{
+    font-size: 3em;
+    color: black;
+}
+.prev-account-item{
+   box-shadow: 1px 1px 5px 1px #000000;
+   margin: 4px;
+   padding: 15px 10px;
+   background-color: 0,0,0,0.2;
+   height: auto;
+   border-radius: 5px;
+   transition: .3s linear all;
+   border: 1px solid #000000;
+
+ }
+
+ .prev-account-item:hover {
+ background: #eee;
+
+ }
+#textAcc{
+  color: black;
+  opacity: 0.7;
 }

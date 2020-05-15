@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'home/show_fundraisers'
   get 'home/show_groups'
   get 'home/show_goals'
+  get 'home/myAccount'
   get 'about', to: 'home#about', foo: 'about'
 
   # Resources
