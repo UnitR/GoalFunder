@@ -59,7 +59,7 @@
 </div>
 </Navbar>
 
-<% if params[:action] == 'about'  %>
+<% unless params[:controller] == 'home' && params[:action] == 'index'  %>
 <%= render "partials/secondaryHeader" %>
 <% end %>
 

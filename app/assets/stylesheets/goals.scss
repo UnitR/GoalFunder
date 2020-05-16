@@ -3,7 +3,9 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import 'application.scss';
 
-
+h1{
+  text-align: center;
+}
 .row {
     display: table;
 }
@@ -34,7 +36,7 @@
 
 .pageDescription{
   background-color: $color2;
-  float: left;
+    float: left;
    border: 1px solid #121314;
    border-top: 1px solid #2b2e30;
    -webkit-border-radius: 5px;
@@ -67,6 +69,7 @@
   border-radius: 5px / 5px;
   border: 2px solid rgba(67, 67, 67, 0.5);
   margin: 5px ;
+  width: 600px;
 }
 
 
@@ -89,6 +92,7 @@
   border-radius: 10px;
   margin-top: 10%;
   margin-left: 15%;
+  margin: 15%;
   opacity: 0.8;
 }
 .bar {
@@ -100,6 +104,7 @@ background: linear-gradient(to left, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Fi
   width: 100%;
   border-radius: 10px;
   transition: width 400ms;
+
 }
 
 div#myDiv {
@@ -122,4 +127,58 @@ div#myDiv {
   -webkit-transition: height 0.6s ease;
   -o-transition: height 0.6s ease;
   transition: height 0.6s ease;
+}
+
+
+
+
+// table-
+table {
+	width: 800px;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+th,
+td {
+	padding: 15px;
+	background-color: rgba(255,255,255,0.2);
+	color: #fff;
+}
+
+th {
+	text-align: left;
+}
+
+thead {
+	th {
+		background-color: #55608f;
+	}
+}
+
+tbody {
+	tr {
+		&:hover {
+			background-color: rgba(255,255,255,0.3);
+		}
+	}
+	td {
+		position: relative;
+		&:hover {
+			&:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: -9999px;
+				bottom: -9999px;
+				background-color: rgba(255,255,255,0.2);
+				z-index: -1;
+			}
+		}
+	}
+}
+.table-responsive{
+  min-width: 400px;
 }
