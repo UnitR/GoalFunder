@@ -254,15 +254,21 @@ div{
   opacity: 0.7;
 }
 
-form label, form input {
+form input {
   display: block;
   margin: 10px;
-  width: 75%;
+  width: 50%;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 3px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
   margin-top: 6px;
   margin-bottom: 10px;
-  resize: vertical;
+}
+
+form label {
+  padding: 10px;
+  margin-left: 5px;
+  margin-top: 6px;
+  margin-bottom: 5px;
 }

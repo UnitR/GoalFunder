@@ -45,6 +45,7 @@ home:
     enter_subject: What is your question about?
     message: "Message:"
     enter_message: What are your queries?
+    
     submit: Contact Us
 
     request_contact:

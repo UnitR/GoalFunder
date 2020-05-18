@@ -2,16 +2,16 @@
 <p>Here you can contact us if you have any questions. Please provide information about your query in the boxes below.<p>
 
   <%= form_tag request_contact_path, method: 'post' do %>
-    <%= label_tag :email, t('.email') %>
+    <%= label_tag :email, t('.your_email_address:') %>
     <%= email_field_tag :email, '', title: t('.enter_email'), size: 50 %>
 
-    <%= label_tag :confirm_email, t('.confirm_email') %>
+    <%= label_tag :confirm_email, t('.confirm_email_address:') %>
     <%= email_field_tag :confirm_email, '', title: t('.confirm_email'), size: 50 %>
 
-    <%= label_tag :subject, t('.subject') %>
+    <%= label_tag :subject, t('.subject:') %>
     <%= telephone_field_tag :subject, '', title: t('.enter_subject'), size: 50 %>
 
-    <%= label_tag :message, t('.message') %>
+    <%= label_tag :message, t('.description:') %>
     <%= text_field_tag :message, '', title: t('.enter_message'), size: 100 %>
 
     <%= submit_tag t('.submit') %>
