@@ -37,14 +37,14 @@ home:
     title: Contact
     contact: Please provide information about your query
 
-    name: "Name:"
-    enter_name: Enter your name
     email: "Email:"
     enter_email: Enter your email address
-    telephone: "Telephone:"
-    enter_telephone: Enter your telephone number
+    confirm_email: "Confirm email address:"
+    enter_confirm_email: Confrm email address
+    subject: "Subject:"
+    enter_subject: What is your question about?
     message: "Message:"
-    enter_message: What do you want to say?
+    enter_message: What are your queries?
     submit: Contact Us
 
     request_contact:
