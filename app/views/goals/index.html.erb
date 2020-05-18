@@ -1,11 +1,182 @@
 <%-         #   This is the Goals Page     WORK IN PROGRESS  #          -%>
 <html lang="en"><head>
-
+  <%= stylesheet_link_tag "goals" %>
+  <%= stylesheet_link_tag "header" %>
   <%= javascript_pack_tag 'goals', 'data-turbolinks-track': 'reload' %>
 
 </head>
 
 <body>
+  <div id ="content" class="container" style="margin-top: 13%; margin-left: 7%;">
+  	<div class="row">
 
+      <!-- left float -->
+
+<div class="float-box-left">
+  		<div class="col-md-2" style="min-width: 200px;">
+
+  			<h3 style="margin: 10%;">
+  			Group List
+  			</h3>
+        <div class="table-responsive">
+        <table id="productSizes" class="table">
+<thead>
+  <tr>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Eagles</td>
+  </tr>
+  <tr>
+    <td>Group 14</td>
+  </tr>
+  <tr>
+    <td>Boston</td>
+  </tr>
+  <tr>
+    <td>Mephis</td>
+  </tr>
+  <tr>
+    <td>Cell 1</td>
+  </tr>
+</tbody>
+</table>
+</div>
+  		</div> </div>
+
+        <!-- middle float -->
+        <div class="float-box-mid">
+  		<div class="col-md-8" style="width: 600px;">
+  			<div class="row">
+  				<div class="col-md-4">
+
+      <!-- progress bar -->
+        <div class="bar-container" id="myDiv">
+          <div class="bar" id="bar"></div>
+        </div>
+
+
+  				</div>
+  				<div class="col-md-8">
+  					<h3 style="margin: 5%;">
+  						[GROUP NAME] PAYMENTS
+  					</h3>
+            <div class="table-responsive">
+            <table id="productSizes" class="table">
+		<thead>
+			<tr>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Klyde Moradeyo</td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Alejandro Hernandez</td>
+				<td>Cell 2</td>
+				<td>Cell 3</td>
+				<td>Cell 4</td>
+			</tr>
+			<tr>
+				<td>Krupa Patel</td>
+				<td>Cell 2</td>
+				<td>Cell 3</td>
+				<td>Cell 4</td>
+			</tr>
+			<tr>
+				<td>Angel</td>
+				<td>Cell 2</td>
+				<td>Cell 3</td>
+				<td>Cell 4</td>
+			</tr>
+			<tr>
+				<td>Cell 1</td>
+				<td>Cell 2</td>
+				<td>Cell 3</td>
+				<td>Cell 4</td>
+			</tr>
+		</tbody>
+	</table>
+  </div>
+<br>
+  					<button type="button" class="btn btn-success" id="btnGoals" >
+  						New Payment
+  					</button>
+  					<button type="button" class="btn btn-success" id="btnGoals">
+  						New Goal
+  					</button>
+  				</div>
+  			</div>
+  		</div>
+      </div>
+
+      <!-- right float -->
+      <!-- right float top -->
+
+      <div class="col-md-2" style="min-width: 300px;">
+
+        <div class="float-box-right">
+  			<div class="row">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="xMinYMin meet" width="150px" height="150px" style="border:1px solid black">
+
+
+                      <text  x="32%" y="30%" text-anchor="middle" fill="white" font-size="10px" font-family="Arial" dy=".3em">£
+                         <tspan class="em" x="54%" y="37%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">45 000</tspan>
+                         <tspan class="em" x="52%" y="43%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">_____</tspan>
+                         <tspan class="em" x="50%" y="65%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">50 000</tspan>
+                      </text>
+
+                  </svg>
+  			</div>
+        </div>
+
+        <!-- right float middle -->
+        <div class="float-box-right">
+  			<div class="row">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="xMinYMin meet" width="150px" height="150px" style="border:1px solid black">
+
+
+                      <text  x="32%" y="30%" text-anchor="middle" fill="white" font-size="10px" font-family="Arial" dy=".3em">£
+                         <tspan class="em" x="54%" y="37%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">45 000</tspan>
+                         <tspan class="em" x="52%" y="43%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">_____</tspan>
+                         <tspan class="em" x="50%" y="65%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">50 000</tspan>
+                      </text>
+
+                  </svg>
+  			</div>
+        </div>
+
+          <!-- right float bottom -->
+          <div class="float-box-right">
+  			<div class="row">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="xMinYMin meet" width="150px" height="150px" style="border:1px solid black">
+
+
+                      <text  x="32%" y="30%" text-anchor="middle" fill="white" font-size="10px" font-family="Arial" dy=".3em">£
+                         <tspan class="em" x="54%" y="37%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">45 000</tspan>
+                         <tspan class="em" x="52%" y="43%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">_____</tspan>
+                         <tspan class="em" x="50%" y="65%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">50 000</tspan>
+                      </text>
+
+                  </svg>
+  			</div>
+        </div>
+
+
+  		</div>
+  	</div>
+  </div>
 
 </body>
+</html>
+<!-- Text -->
+
+<!--   End Of Button  -->
+<div class="text" id="text">20%</div>
+<!-- End Of Text -->
+!--  Button   -->
+<button class="btn" type="button" id="btn">+10</button>

@@ -2,15 +2,16 @@
 <%= csrf_meta_tags %>
 <Navbar class="navbar navbar-expand-lg ">
     <div class="container">
-         <a  id = "present" class="navbar-brand text-white" href="/">The Goal Funder</a>
+         <a  id = "present" class="navbar-brand text-white col-2" href="/">The Goal Funder</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nvbCollapse" aria-controls="nvbCollapse">
                   <span class="navbar-toggler-icon"></span>
              </button>
       <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item pl-7">
+              <li class="nav-item pl-1">
                  <a class="nav-link text-light" href="/"><i class="fa fa-circle fa-fw mr-1"></i>Dashboard</a>
               </li>
+              <% if user_signed_in? %>
               <li class="nav-item  pl-1">
                  <a class="nav-link text-light" href="/goals"><i class="fa fa-circle fa-fw mr-1 color-white"></i>My Goals</a>
               </li>
@@ -20,9 +21,11 @@
               <li class="nav-item pl-1">
                      <a class="nav-link text-light" href="/groups"><i class="fa fa-circle fa-fw fa-rotate-180 mr-1"></i>Groups</a>
               </li>
+
               <li class="nav-item pl-1">
                      <a class="nav-link text-light" href="/about"><i class="fa fa-circle fa-fw fa-rotate-180 mr-1"></i>About Us</a>
               </li>
+                <% end %>
               <li class="nav-item pl-1">
                 <% if user_signed_in? %>
                  Logged in as <strong><%= current_user.email %></strong>.
@@ -43,77 +46,45 @@
              </li>
              <li></li>
              <li></li>
+             <% if user_signed_in? %>
              <li class="nav-item pl-3">
                <button type="button" id="sidebarCollapse" class="btn btn-dark">
                  <i class="fa fa-align-justify"></i>
                </button>
              </li>
+             <% end %>
            </ul>
      </div>
 
 </div>
 </Navbar>
 
-<% if controller_name == "goals"  %>
+<% unless params[:controller] == 'home' && params[:action] == 'index'  %>
 <%= render "partials/secondaryHeader" %>
 <% end %>
 
 
 
 <!-- Sidebar -->
-<div class="wrapper">
 
-<nav id="sidebar">
-  <div class="sidebar-header">
-        <h3>Bootstrap Sidebar</h3>
-  </div>
-      <ul class="list-unstyled components">
+<% if user_signed_in? %>
+<div id="wrapper">
 
-              <li>
-                  <a href="/about">About</a>
-              </li>
+  <div id="sidebar-wrapper">
+         <ul class="sidebar-nav">
 
-              <li>
-                  <a href="#">Portfolio</a>
-              </li>
-              <li>
-                  <a href="/contact">Contact</a>
-              </li>
-        </ul>
-</nav>
+             <li class="sidebar-brand">
+                 <a >
+                     <%= current_user.email %>
+                 </a>
+             </li>
+             <li>
+                 <a href="/home/myAccount">My Account</a>
+             </li>
+             <li>
+                 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+             </li>
+         </ul>
+     </div>
 </div>
-
-<!-- rending headers for different views -->
-<!-- On page navbar2 -->
-<% if @home_banner %>
-
-<div class="pageNavBar">
-<ul class="nav">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Personal Goals</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Group Goals</a>
-  </li>
-</ul>
-
-
-</div>
-
-<div class="pageDescription">
-
-<div class="pageDescriptionContent" style="float:left;">
-  <h1>
-    Group Goals
-  </h1>
-  <p>
-    This section of displays the contains information about how much you have saved towards a certain goal. Such as your Recipts towards a goal, <br> a list of your personal goals and deadline
-    towards the goal. This information is essential to keeping track of your progress.
-  </p>
-</div>
-
-	<button type="button" class="btn btn-desc" style="margin-top: 1.75%;"> More Info</button>
-  <button type="button" class="btn btn-desc"> More Info</button>
-</div>
-
 <% end %>

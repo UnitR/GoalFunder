@@ -23,12 +23,11 @@ class HomeController < ApplicationController
   def about
   end
 
-  def contact
+  def myAccount
   end
 
-  def whatever_view_this_is
-  @home_banner  = true
-end
+  def contact
+  end
 
   def request_contact
     name = params[:name]
@@ -44,4 +43,5 @@ end
     end
     redirect_to root_path
   end
+
 end
