@@ -31,3 +31,22 @@
 
 en:
   hello: "Hello world"
+
+home:
+  contact:
+    title: Contact
+    contact: Please provide information about your query
+
+    name: "Name:"
+    enter_name: Enter your name
+    email: "Email:"
+    enter_email: Enter your email address
+    telephone: "Telephone:"
+    enter_telephone: Enter your telephone number
+    message: "Message:"
+    enter_message: What do you want to say?
+    submit: Contact Us
+
+    request_contact:
+      no_email: You must supply an email address
+      email_sent: Thank you for submitting your query

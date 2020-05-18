@@ -226,3 +226,8 @@ div{
   text-align: center;
   //border: solid blue;
 }
+
+form label, form input {
+  display: block;
+  margin: 10px;
+}

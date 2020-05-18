@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'home/show_groups'
   get 'home/show_goals'
   get 'about', to: 'goals#about', foo: 'about'
+  get 'contact', to: 'home#contact'
+  post 'request_contact', to: 'home#request_contact'
 
   # Resources
   resources :goals

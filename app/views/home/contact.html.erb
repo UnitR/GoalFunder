@@ -1,2 +1,18 @@
-<h1>Home#contact</h1>
-<p>Find me in app/views/home/contact.html.erb</p>
+<h1>Contact</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<p>
+
+  <%= form_tag request_contact_path, method: 'post' do %>
+    <%= label_tag :name, t('.name') %>
+    <%= text_field_tag :name, '', title: t('.enter_name'), size: 50 %>
+
+    <%= label_tag :email, t('.email') %>
+    <%= email_field_tag :email, '', title: t('.enter_email') %>
+
+    <%= label_tag :telephone, t('.telephone') %>
+    <%= telephone_field_tag :telephone, '', title: t('.enter_telephone') %>
+
+    <%= label_tag :message, t('.message') %>
+    <%= text_field_tag :message, '', title: t('.enter_message'), size: 100 %>
+
+    <%= submit_tag t('.submit') %>
+  <% end %>
