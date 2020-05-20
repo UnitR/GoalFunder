@@ -31,3 +31,23 @@
 
 en:
   hello: "Hello world"
+
+home:
+  contact:
+    title: Contact
+    contact: Please provide information about your query
+
+    email: "Email:"
+    enter_email: Enter your email address
+    confirm_email: "Confirm email address:"
+    enter_confirm_email: Confrm email address
+    subject: "Subject:"
+    enter_subject: What is your question about?
+    message: "Message:"
+    enter_message: What are your queries?
+    
+    submit: Contact Us
+
+    request_contact:
+      no_email: You must supply an email address
+      email_sent: Thank you for submitting your query
