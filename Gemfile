@@ -58,3 +58,9 @@ gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 
 gem "font-awesome-rails"
+
+# PayPal SDK gem
+gem 'paypal-checkout-sdk'
+
+# Figaro for managing ENV more easily
+gem "figaro"
