@@ -1,4 +1,4 @@
-class GoalOwners < ApplicationRecord
+class GoalOwner < ApplicationRecord
   # ==========================
   # RELATIONSHIPS
   # ==========================
