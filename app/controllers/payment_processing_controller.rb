@@ -1,7 +1,7 @@
 require 'paypal_client'
 
 class PaymentProcessingController < ApplicationController
-  include PayPalClient
+  include PaypalClient
 
   # Verify request parameters
   before_action :set_payment, except: :make_payment
@@ -107,7 +107,7 @@ class PaymentProcessingController < ApplicationController
     begin
 
       # Perform the specified request from above
-      @response = PayPalClient.client.execute(request)
+      @response = PaypalClient.client.execute(request)
       return true
 
     rescue => e
