@@ -13,4 +13,11 @@ class ApplicationController < ActionController::Base
     redirect_back(fallback_location: root_path)
   end
 
+#adds new params to devise user-------------------------------------------------
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email, :encrypted_password, :is_admin, :is_organisation])
+    end
 end

@@ -1,0 +1,90 @@
+<%= stylesheet_link_tag "header" %>
+<%= csrf_meta_tags %>
+<Navbar class="navbar navbar-expand-lg ">
+    <div class="container">
+         <a  id = "present" class="navbar-brand text-white col-2" href="/">The Goal Funder</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nvbCollapse" aria-controls="nvbCollapse">
+                  <span class="navbar-toggler-icon"></span>
+             </button>
+      <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item pl-1">
+                 <a class="nav-link text-light" href="/"><i class="fa fa-circle fa-fw mr-1"></i>Dashboard</a>
+              </li>
+              <% if user_signed_in? %>
+              <li class="nav-item  pl-1">
+                 <a class="nav-link text-light" href="/goals"><i class="fa fa-circle fa-fw mr-1 color-white"></i>My Goals</a>
+              </li>
+              <li class="nav-item pl-1">
+                 <a class="nav-link text-light" href="#"><i class="fa fa-circle fa-fw mr-1"></i>Friends</a>
+              </li>
+              <li class="nav-item pl-1">
+                     <a class="nav-link text-light" href="/groups"><i class="fa fa-circle fa-fw fa-rotate-180 mr-1"></i>Groups</a>
+              </li>
+
+              <li class="nav-item pl-1">
+                     <a class="nav-link text-light" href="/about"><i class="fa fa-circle fa-fw fa-rotate-180 mr-1"></i>About Us</a>
+              </li>
+                <% end %>
+              <li class="nav-item pl-1">
+                <% if user_signed_in? %>
+                 Logged in as <strong><%= current_user.username %></strong>.
+
+                 <%= link_to 'Edit profile' , edit_user_registration_path %> |
+                 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                <% else %>
+                 <%= link_to "Sign up", new_user_registration_path %> |
+                 <%= link_to "Login", new_user_session_path %>
+                <% end %>
+
+                <% if notice %>
+                 <p class="alert alert-success"><%= notice %></p>
+                <% end %>
+                <% if alert %>
+                 <p class="alert alert-danger"><%= alert %></p>
+                <% end %>
+             </li>
+             <li></li>
+             <li></li>
+             <% if user_signed_in? %>
+             <li class="nav-item pl-3">
+               <button type="button" id="sidebarCollapse" class="btn btn-dark">
+                 <i class="fa fa-align-justify"></i>
+               </button>
+             </li>
+             <% end %>
+           </ul>
+     </div>
+
+</div>
+</Navbar>
+
+<% unless params[:controller] == 'home' && params[:action] == 'index'  %>
+<%= render "partials/secondaryHeader" %>
+<% end %>
+
+
+
+<!-- Sidebar -->
+
+<% if user_signed_in? %>
+<div id="wrapper">
+
+  <div id="sidebar-wrapper">
+         <ul class="sidebar-nav">
+
+             <li class="sidebar-brand">
+                 <a >
+                     <%= current_user.username %>
+                 </a>
+             </li>
+             <li>
+                 <a href="/home/myAccount">My Account</a>
+             </li>
+             <li>
+                 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+             </li>
+         </ul>
+     </div>
+</div>
+<% end %>

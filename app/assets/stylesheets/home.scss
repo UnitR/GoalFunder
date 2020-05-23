@@ -1,3 +1,274 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import 'application.scss';
+.container-fluid {
+    padding-right:0;
+    padding-left: 0;
+    margin-right: 5%;
+    margin-left: 5%;
+    width: 75%;
+    padding-left: 5%;
+    padding-bottom: 5%;
+ }
+
+ div{
+   color: white;
+   text-align: center;
+ }
+
+//this css get the dashboard in place so it doesnt appear bellow the sidebar
+ #content{
+   position: absolute;
+   top:80px;
+   left:10%;
+ }
+ ///-----------------------------------------------------------------------
+  .Dashboard{
+	height: 100%;
+  left : 30%;
+	font-family: "Montserrat Alternates", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+background-image: url('sky');
+background-color: black;
+
+  background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed;
+
+}
+
+.theDate{
+  text-align: center;
+  font-size: 60px;
+  padding: 2%;
+
+//  padding-bottom: 100%;
+//  border: solid black 5px;
+}
+
+//transluscent box with dateTime and Group Name
+.box_wide{
+  background: url('sky_blur');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border-radius: 5px / 5px;
+  border: 2px solid rgba(67, 67, 67, 0.5);
+  margin-top: 2%;
+
+}
+
+.box_square{
+  background: url('sky_blur');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border-radius: 5px / 5px;
+  border: 2px solid rgba(67, 67, 67, 0.5);
+  margin: 10px auto;
+  }
+
+
+  .box_square2{
+    background: url('sky_blur');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border-radius: 5px / 5px;
+    border: 2px solid rgba(67, 67, 67, 0.5);
+    margin: 10px auto;
+  }
+
+  .progress-ring {
+  //  border: 0.5px solid rgba(67, 67, 67, 0.5);
+
+  }
+
+  .progress-ring__circle {
+    transition: 0.35s stroke-dashoffset;
+    align-self: center;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke: white;
+    stroke-width: 1;
+    stroke-opacity: 1;
+    fill: black;
+    fill-opacity: 0.2;
+  //  background: url('sky_blur2');
+    cx: 50%;
+    cy: 50%;
+    //margin: 5%;
+  }
+
+  .progress-ring__circle2 {
+    transition: 0.35s stroke-dashoffset;
+    align-self: center;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke: black;
+    stroke-width: 1.5;
+    stroke-opacity: 0.2;
+    fill: transparent;
+    fill-opacity: 0.2;
+    cx: 50%;
+    cy: 50%;
+  }
+
+  //Chart.js
+  .chartjs{
+    display: block;
+    overflow: hidden;
+    border: 0px;
+    margin: 0px;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    height: 100px;
+    width: 2px;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .chart-dm{
+display: block;
+// border: 0.5px solid rgba(67, 67, 67, 0.5);
+//width: 950%;
+//height: 570%;
+  }
+
+  .chart-container {
+    // border: 0.5px solid rgba(0, 0, 67, 0.5);
+      position: relative;
+      margin-left:  0% ;
+      margin-bottom: 0% ;
+      margin-right: 0%;
+      margin: 1%;
+    //  width: 775px;
+    //  height: 500px;
+
+    };
+    .container-fluid {
+      // border: 0.5px solid rgba(0, 0, 67, 0.5);
+        position: relative;
+        margin-left: -40px ;
+
+      //  width: 775px;
+      //  height: 500px;
+
+      };
+    .btn-light {
+      background-color: solid rgba(67, 67, 67, 1);
+      border-color: #ccc;
+      margin: 5%;
+    }
+
+    .row.display-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.row.display-flex > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+//button
+.btn-light  {color:#Ffffff;
+  background: rgba(67, 67, 67, 0.7);
+  border-width:2px;
+  border-style: solid;
+  border-color: #454545;
+  position:relative;
+  margin:1em;
+  width: 50%;
+  display:inline-block;
+  padding:0.5em 1em;
+  transition:all 0.3s ease-in-out;
+  text-align:center;
+font-family:comfortaa;font-weight:bold}
+
+.btn-light:before, .btn-light:after {content:'';display:block;position:absolute;border-color:#FFFF;box-sizing:border-box;border-style:solid;width:1em;height:1em;transition:all 0.3s ease-in-out}
+.btn-light:before {top:-6px;left:-6px;border-width:2px 0 0 2px;z-index:5;}
+.btn-light:after {bottom:-6px;right:-6px;border-width:0 2px 2px 0;}
+.btn-light:hover:before, .btn-light:hover:after {width:calc(100% + 12px);
+  height:calc(100% + 12px);border-color:#fff}
+.btn-light:hover {color:#353535;background-color:#fff;border-color:#fff}
+.panel {max-width:960px;text-align:center;position:relative;margin:auto;}
+
+//shapes
+.group-name-container {
+float: left;
+margin: 2%;
+margin-top: 5%;
+  /* Note that percentages work as well as px */
+}
+
+.shape-container{
+  background-image: url('sky');
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+
+div{
+  color: white;
+  text-align: center;
+  //border: solid blue;
+}
+
+//--------------------------------------------------------------------------------------------------
+//MY account page
+#bubbles{
+  position: absolute;
+  top: 80px;
+  left: 65px;
+}
+.prev-account-item i{
+    font-size: 3em;
+    color: black;
+}
+.prev-account-item{
+   box-shadow: 1px 1px 5px 1px #000000;
+   margin: 4px;
+   padding: 15px 10px;
+   background-color: 0,0,0,0.2;
+   height: auto;
+   border-radius: 5px;
+   transition: .3s linear all;
+   border: 1px solid #000000;
+
+ }
+
+ .prev-account-item:hover {
+ background: #eee;
+
+ }
+#textAcc{
+  color: black;
+  opacity: 0.7;
+}
+
+form input {
+  display: block;
+  margin: 10px;
+  width: 50%;
+  padding: 12px;
+  border: 3px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+
+form label {
+  padding: 10px;
+  margin-left: 5px;
+  margin-top: 6px;
+  margin-bottom: 5px;
+}

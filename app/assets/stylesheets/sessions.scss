@@ -1,0 +1,37 @@
+
+//just the background image
+body{
+  background-image: url('sky');
+}
+
+//this css just fixes the position of the forms-----------------------------------------
+.form{
+  position: absolute;
+  top:80px;
+  right:37%;
+
+}
+
+//----------------------------------------------------------------------------------------
+
+
+
+
+//this is the css for the styling of the forms--------------------------------------------
+//icons near the fields
+.input-group-prepend span{
+width: 50px;
+background-color: #BFE5FF;
+color: black;
+border:0 !important;
+}
+
+.card{
+width: 400px;
+background-color: rgba(169, 184, 194,0.7) !important;
+}
+.card-header{
+
+background-color: rgba(169, 184, 194,0.9) !important;
+}
+//-----------------------------------------------------------------------------------------------
