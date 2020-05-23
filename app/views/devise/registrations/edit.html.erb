@@ -10,7 +10,13 @@
         <div class="input-group-prepend">
             <span class="input-group-text"><i class="fa fa-user"></i></span>
         </div>
-          <%= f.email_field :email, class:'form-control',placeholder:"e-mail", autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :username, class:'form-control',placeholder:"New username", autofocus: true, autocomplete: "username" %>
+      </div>
+      <div class="input-group form-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+        </div>
+          <%= f.email_field :email, class:'form-control',placeholder:"New e-mail", autofocus: true, autocomplete: "email" %>
       </div>
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

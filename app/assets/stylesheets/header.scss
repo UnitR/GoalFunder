@@ -9,6 +9,7 @@ $color5: #bfe5ff;
 
 body {
     font-family: 'Poppins', sans-serif;
+    height:100vh;
 
   //  background-color: rgba(67, 67, 67, 0.5);
 }
@@ -53,11 +54,10 @@ a, a:hover, a:focus {
 
 #sidebar-wrapper {
     z-index: 1000;
-    position: fixed;
+    position: absolute;
     right: 250px;
     width: 0;
-
-    height: 100%;
+    height: 105vh;
     margin-right: -250px;
     overflow-y: auto;
     background-color: $color1;
@@ -69,6 +69,7 @@ a, a:hover, a:focus {
 
 #wrapper.toggled #sidebar-wrapper {
     width: 250px;
+    height: 100vh;
 }
 
 #page-content-wrapper {
