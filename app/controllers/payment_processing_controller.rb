@@ -19,14 +19,14 @@ class PaymentProcessingController < ApplicationController
     # If failed for any other reason, return error response
     if @response && @response.result.status == "CREATED" then
 
-      @payment.pp_id = response.result.id
+      @payment.pp_id = @response.result.id
 
       # Save the membership
       respond_to do |format|
         if @payment.save then
           format.html { redirect_to payment_processing_view_payment_path, notice:
               "Successfully contributed to goal '#{Goals.find(@payment.goal_id).name}'!" }
-          format.json { render :show, status: :ok, location: @payment }
+          format.json { render json: @payment, status: :ok }
         else
           format.html { render :show }
           format.json { render json: @payment.errors, status: :unprocessable_entity }
@@ -65,6 +65,7 @@ class PaymentProcessingController < ApplicationController
   end
 
   def view_payment
+    head :ok
   end
 
   private
@@ -76,15 +77,15 @@ class PaymentProcessingController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def payment_params
-    params.require(:payment).permit(:user_id, :goal_id, :amount, :pp_id)
+    params.permit(:user_id, :goal_id, :amount)
   end
 
   # Ensures the user is the owner of a group
   def check_payment
 
     # Check if user ID matches group owner's ID
-    raise User::NotAuthorized unless current_user.id = @payment.user_id
-
+    # raise User::NotAuthorized unless current_user.id = @payment.user_id
+    true
   end
 
   def do_request
