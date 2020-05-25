@@ -3,8 +3,10 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import 'application.scss';
 
+
 .row {
     display: table;
+    height: 150px;
 }
 
 [class*="col-"] {
@@ -88,7 +90,7 @@
 .bar-container {
   background: #f0f0f0;
   height: 400px;
-  width: 50%;
+  width: 55%;
   border-radius: 10px;
   margin-top: 10%;
   margin-left: 20%;
@@ -146,6 +148,7 @@ td {
 	padding: 15px;
 	background-color: rgba(255,255,255,0.2);
 	color: #fff;
+  text-align: left;
 }
 
 th {
