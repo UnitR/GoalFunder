@@ -1,0 +1,52 @@
+
+<script type="text/javascript">
+  $(function() {
+    $('#input-search').on('keyup', function() {
+      var rex = new RegExp($(this).val(), 'i');
+        $('.searchable-container .items').hide();
+        $('.searchable-container .items').filter(function() {
+            return rex.test($(this).text());
+        }).show();
+    });
+});
+</script>
+
+<% @users = User.all %>
+<div class="container">
+	<div class="row">
+        <div class="col-lg-12">
+          <form class="form-inline" id ="textuser">
+              <i class="fa fa-search" aria-hidden="true"></i>
+              <input class="form-control form-control-sm ml-3 w-75" type="text" id="input-search"  placeholder="Search Users..." aria-label="Search">
+          </form>
+        </div>
+            <% @users.each do |user| %>
+        <div class="searchable-container">
+            <div class="items col-xs-12 col-sm-6 col-md-6 col-lg-6 clearfix">
+               <div class="info-block block-info clearfix" id ="textuser">
+
+                    <div class=" pull-left">
+                        <i class="fa fa-user" id = "usericon"></i>
+                    </div>
+                    <h4><%= user.username %></h4>
+
+                    <%=link_to "Profile", user_path(user), {class: 'btn btn-outline-dark', style: 'width: 100%; color:black;'}%>
+                    <br>
+                    <br>
+                    <%if user.is_admin == false%>
+                    <div class=" pull-right">
+                      <%= link_to user_path(user), method: :delete, data: { confirm: "Really delete this user?" }, class: 'btn btn-outline-danger' do %>
+                        <i class="fa fa-trash" style = "color:black;"></i>
+                      <% end %>
+                      </div>
+
+                    <%end%>
+
+                </div>
+
+            </div>
+
+        </div>
+          <% end %>
+	</div>
+</div>

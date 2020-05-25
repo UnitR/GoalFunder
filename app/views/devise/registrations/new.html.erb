@@ -36,6 +36,10 @@
             <%= f.check_box :is_organisation %>
             <%= f.label :organisation_account? %>
           </div>
+          <div class="field">
+            <%= f.check_box :is_admin %>
+            <%= f.label :admin? %>
+          </div>
           <% if devise_mapping.rememberable? %>
             <div class="field">
               <%= f.check_box :remember_me %>

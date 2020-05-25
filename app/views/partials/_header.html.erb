@@ -84,6 +84,11 @@
              <li>
                  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
              </li>
+             <% if current_user.is_admin == true %>
+             <li>
+                 <a href="/home/manage">Manage</a>
+             </li>
+             <% end %>
          </ul>
      </div>
 </div>

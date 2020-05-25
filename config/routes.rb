@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # ROOT
   root to: 'home#index'
 
+
   # HOME controller routing
   get 'home/index'
   get 'home/contact'
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   get 'home/show_groups'
   get 'home/show_goals'
   get 'home/myAccount'
+  get 'home/manage'
   get 'about', to: 'home#about', foo: 'about'
   get 'contact', to: 'home#contact'
   post 'request_contact', to: 'home#request_contact'
@@ -21,7 +23,8 @@ Rails.application.routes.draw do
   # Resources
   resources :goals
   resources :groups
-
+  resources :users, only: [:show, :index]
+  delete "users/:id", to: "users#destroy"
   # goal controller routing
   get 'goals/index', to: 'goals#index', foo: 'groupGoal'
 
