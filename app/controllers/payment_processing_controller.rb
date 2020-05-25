@@ -4,7 +4,7 @@ class PaymentProcessingController < ApplicationController
   include PayPalClient
 
   # Verify request parameters
-  before_action :set_payment, except: :make_payment
+  before_action :set_payment, only: :view_payment
 
   def make_payment
 
@@ -65,7 +65,10 @@ class PaymentProcessingController < ApplicationController
   end
 
   def view_payment
-    head :ok
+  end
+
+  def view_all
+    @payments = current_user.payments.all
   end
 
   private
