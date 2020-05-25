@@ -90,8 +90,8 @@
 		</tbody>
 	</table>
   </div>
-
-  					<button type="button" class="btn btn-success" id="btnGoals" >
+<br>
+  					<button type="button" class="btn btn-success" id="btnMakePayment" data-toggle="modal" data-target="#paymentModal" >
   						New Payment
   					</button>
   					<button type="button" class="btn btn-success" id="btnGoals">
@@ -165,3 +165,38 @@
 <!-- End Of Text -->
 <!--  Button   -->
 <button class="btn" type="button" id="btn">+10</button>
+
+
+<!-- Payment Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color:black">Payment options</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group row" style="padding-left: 10px">
+          <label for="paymentAmount" style="color:black" class="col-form-label">Amount to donate:</label>
+          <div class="col-sm-7">
+            <input id="paymentAmount" type="text" class="form-control" text="10" />
+          </div>
+          <div>
+            <% if user_signed_in? %>
+              <input type="hidden" id="hdnUserId" value="<%= current_user.id %>" />
+            <% else %>
+              <input type="hidden" id="hdnUserId" value="0" />
+            <% end %>
+              <input type="hidden" id="hdnGoalId" value="1" />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="confPayment">Proceed to Payment</button>
+      </div>
+    </div>
+  </div>
+</div>

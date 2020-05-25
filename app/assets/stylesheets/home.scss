@@ -51,18 +51,14 @@ background-attachment: fixed;
 
 }
 
-
 .theDate{
   text-align: center;
   font-size: 60px;
   padding: 2%;
 
-
 //  padding-bottom: 100%;
 //  border: solid black 5px;
 }
-
-
 
 //transluscent box with dateTime and Group Name
 .box_wide{
@@ -74,6 +70,11 @@ background-attachment: fixed;
   border-radius: 5px / 5px;
   border: 2px solid rgba(67, 67, 67, 0.5);
   margin-top: 2%;
+  min-height: 200px;
+//  max-height: 300px;
+  //min-width: 1200px;
+//  max-width: 1300px;
+
 }
 
 .box_square{
@@ -98,8 +99,6 @@ background-attachment: fixed;
     border: 2px solid rgba(67, 67, 67, 0.5);
     margin: 10px auto;
   }
-
-
 
   .progress-ring {
   //  border: 0.5px solid rgba(67, 67, 67, 0.5);
@@ -135,8 +134,6 @@ background-attachment: fixed;
     cx: 50%;
     cy: 50%;
   }
-
-
 
   //Chart.js
   .chartjs{
@@ -179,7 +176,6 @@ display: block;
       margin: 5%;
     }
 
-
     .row.display-flex {
   display: flex;
   flex-wrap: wrap;
@@ -188,7 +184,6 @@ display: block;
   display: flex;
   flex-direction: column;
 }
-
 
 //button
 .btn-light  {color:#Ffffff;
@@ -213,7 +208,6 @@ font-family:comfortaa;font-weight:bold}
 .btn-light:hover {color:#353535;background-color:#fff;border-color:#fff}
 .panel {max-width:960px;text-align:center;position:relative;margin:auto;}
 
-
 //shapes
 .group-name-container {
 float: left;
@@ -222,21 +216,17 @@ margin-top: 5%;
   /* Note that percentages work as well as px */
 }
 
-
 .shape-container{
   background-image: url('sky');
  background-repeat: no-repeat;
  background-size: cover;
 }
 
-
-
 div{
   color: white;
   text-align: center;
   //border: solid blue;
 }
-
 
 //--------------------------------------------------------------------------------------------------
 //MY account page
@@ -268,4 +258,23 @@ div{
 #textAcc{
   color: black;
   opacity: 0.7;
+}
+
+form input {
+  display: block;
+  margin: 10px;
+  width: 50%;
+  padding: 12px;
+  border: 3px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+
+form label {
+  padding: 10px;
+  margin-left: 5px;
+  margin-top: 6px;
+  margin-bottom: 5px;
 }

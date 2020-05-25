@@ -1,0 +1,57 @@
+<%= stylesheet_link_tag "payment_processing" %>
+
+<table id="tblPaymentHistory">
+
+  <thead>
+    <tr>
+      <th>Goal</th>
+      <th>Amount Contributed</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @payments.each do |payment| %>
+    <tr>
+      <td><span class="spnGoalLink" data-goal="<%= payment.goal.id %>"><%= payment.goal.name %></span></td>
+      <td>£<%= payment.amount %></td>
+      <td><%= payment.created_at %></td>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>
+
+<!-- Payment Modal -->
+<div class="modal fade" id="paymentGoalDetailsModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color:black">Goal Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="dvDetailsGrid">
+          <div class="dvDetailsGroup">
+            <span class="spnDetailsLabel">Name:</span>
+            <span class="spnDetailsValue" id="spnGoalName"></span>
+          </div>
+          <div class="dvDetailsGroup">
+            <span class="spnDetailsLabel">Goal owner:</span>
+            <span class="spnDetailsValue" id="spnGoalOwner"></span>
+          </div>
+          <div class="dvDetailsGroup">
+            <span class="spnDetailsLabel">Is charity:</span>
+            <span class="spnDetailsValue" id="spnIsDonation"></span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+<%= javascript_pack_tag 'payment_processing', 'data-turbolinks-track': 'reload' %>

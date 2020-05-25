@@ -1,0 +1,31 @@
+// Place all the styles related to the PaymentProcessing controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+#tblPaymentHistory {
+  tbody th td span.spnGoalLink {
+    color: #000000;
+  }
+}
+
+.dvDetailsGrid {
+
+  display: grid;
+  grid-row-gap: 10px;
+
+  .dvDetailsGroup {
+
+    width: 100%;
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+
+    .spnDetailsLabel {
+      color: #000000;
+      font-weight: bold;
+    }
+    .spnDetailsValue {
+      color: #000000;
+    }
+  }
+}
