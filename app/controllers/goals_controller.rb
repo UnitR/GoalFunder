@@ -10,6 +10,13 @@ class GoalsController < ApplicationController
   # GET /goals/1
   # GET /goals/1.json
   def show
+
+
+
+    respond_to do |format|
+      format.html { render @goal }
+      format.json { render json: @goal.to_json(:include => [:goal_owner => {:include => [:user]}]) }
+    end
   end
 
   # GET /goals/new

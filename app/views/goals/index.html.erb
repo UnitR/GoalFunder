@@ -53,7 +53,8 @@
 
       <!-- progress bar -->
         <div class="bar-container" id="myDiv">
-          <div class="bar" id="bar"></div>
+          <div class="bar" id="bar">
+          <div class="text" id="text">20%</div></div>
         </div>
 
 
@@ -70,40 +71,27 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>Klyde Moradeyo</td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td>Klyde Moradeyo <br>
+        15/05/20  </td>
+				<td>£1000</td>
 			</tr>
 			<tr>
-				<td>Alejandro Hernandez</td>
-				<td>Cell 2</td>
-				<td>Cell 3</td>
-				<td>Cell 4</td>
+				<td>Alejandro Hernandez <br> 11/05/20</td>
+				<td>£500</td>
 			</tr>
 			<tr>
-				<td>Krupa Patel</td>
-				<td>Cell 2</td>
-				<td>Cell 3</td>
-				<td>Cell 4</td>
+				<td>Krupa Patel <br> 04/04/20</td>
+				<td>£300</td>
 			</tr>
 			<tr>
-				<td>Angel</td>
-				<td>Cell 2</td>
-				<td>Cell 3</td>
-				<td>Cell 4</td>
-			</tr>
-			<tr>
-				<td>Cell 1</td>
-				<td>Cell 2</td>
-				<td>Cell 3</td>
-				<td>Cell 4</td>
+				<td>Angel Pelwhatever <br> 04/03/20 </td>
+				<td>£425</td>
 			</tr>
 		</tbody>
 	</table>
   </div>
 <br>
-  					<button type="button" class="btn btn-success" id="btnGoals" >
+  					<button type="button" class="btn btn-success" id="btnMakePayment" data-toggle="modal" data-target="#paymentModal" >
   						New Payment
   					</button>
   					<button type="button" class="btn btn-success" id="btnGoals">
@@ -121,29 +109,28 @@
 
         <div class="float-box-right">
   			<div class="row">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="xMinYMin meet" width="150px" height="150px" style="border:1px solid black">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="xMinYMin meet" width="275px" height="150px">
 
 
-                      <text  x="32%" y="30%" text-anchor="middle" fill="white" font-size="10px" font-family="Arial" dy=".3em">£
-                         <tspan class="em" x="54%" y="37%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">45 000</tspan>
-                         <tspan class="em" x="52%" y="43%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">_____</tspan>
-                         <tspan class="em" x="50%" y="65%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">50 000</tspan>
+                      <text  x="100%" y="15%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">Days Left
+                         <tspan class="em" x="100%" y="50%" text-anchor="middle" fill="white" font-size="40px" font-family="Arial" dy=".3em">365</tspan>
+                         <tspan class="em" x="100%" y="85%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">Deadline Date</tspan>
                       </text>
 
                   </svg>
+
   			</div>
         </div>
 
         <!-- right float middle -->
         <div class="float-box-right">
   			<div class="row">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="xMinYMin meet" width="150px" height="150px" style="border:1px solid black">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="xMinYMin meet" width="275px" height="150px" >
 
 
-                      <text  x="32%" y="30%" text-anchor="middle" fill="white" font-size="10px" font-family="Arial" dy=".3em">£
-                         <tspan class="em" x="54%" y="37%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">45 000</tspan>
-                         <tspan class="em" x="52%" y="43%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">_____</tspan>
-                         <tspan class="em" x="50%" y="65%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">50 000</tspan>
+                      <text  x="100%" y="20%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">Your Contribution
+                         <tspan class="em" x="60%" y="50%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">£</tspan>
+                         <tspan class="em" x="100%" y="60%" text-anchor="middle" fill="white" font-size="40px" font-family="Arial" dy=".3em">500</tspan>
                       </text>
 
                   </svg>
@@ -153,13 +140,11 @@
           <!-- right float bottom -->
           <div class="float-box-right">
   			<div class="row">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="xMinYMin meet" width="150px" height="150px" style="border:1px solid black">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="xMinYMin meet" width="275px" height="150px" >
 
 
-                      <text  x="32%" y="30%" text-anchor="middle" fill="white" font-size="10px" font-family="Arial" dy=".3em">£
-                         <tspan class="em" x="54%" y="37%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">45 000</tspan>
-                         <tspan class="em" x="52%" y="43%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">_____</tspan>
-                         <tspan class="em" x="50%" y="65%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">50 000</tspan>
+                      <text  x="32%" y="30%" text-anchor="middle" fill="white" font-size="10px" font-family="Arial" dy=".3em">
+
                       </text>
 
                   </svg>
@@ -176,7 +161,42 @@
 <!-- Text -->
 
 <!--   End Of Button  -->
-<div class="text" id="text">20%</div>
+
 <!-- End Of Text -->
-!--  Button   -->
+<!--  Button   -->
 <button class="btn" type="button" id="btn">+10</button>
+
+
+<!-- Payment Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color:black">Payment options</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group row" style="padding-left: 10px">
+          <label for="paymentAmount" style="color:black" class="col-form-label">Amount to donate:</label>
+          <div class="col-sm-7">
+            <input id="paymentAmount" type="text" class="form-control" text="10" />
+          </div>
+          <div>
+            <% if user_signed_in? %>
+              <input type="hidden" id="hdnUserId" value="<%= current_user.id %>" />
+            <% else %>
+              <input type="hidden" id="hdnUserId" value="0" />
+            <% end %>
+              <input type="hidden" id="hdnGoalId" value="1" />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="confPayment">Proceed to Payment</button>
+      </div>
+    </div>
+  </div>
+</div>

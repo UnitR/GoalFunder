@@ -13,6 +13,16 @@
     padding-bottom: 5%;
  }
 
+ .container-fluid {
+   // border: 0.5px solid rgba(0, 0, 67, 0.5);
+     //position: relative;
+     margin-left: -40px ;
+
+   //  width: 775px;
+   //  height: 500px;
+
+   };
+
  div{
    color: white;
    text-align: center;
@@ -21,7 +31,7 @@
 //this css get the dashboard in place so it doesnt appear bellow the sidebar
  #content{
    position: absolute;
-   top:80px;
+  top:80px;
    left:10%;
  }
  ///-----------------------------------------------------------------------
@@ -60,6 +70,10 @@ background-attachment: fixed;
   border-radius: 5px / 5px;
   border: 2px solid rgba(67, 67, 67, 0.5);
   margin-top: 2%;
+  min-height: 200px;
+//  max-height: 300px;
+  //min-width: 1200px;
+//  max-width: 1300px;
 
 }
 
@@ -155,15 +169,7 @@ display: block;
     //  height: 500px;
 
     };
-    .container-fluid {
-      // border: 0.5px solid rgba(0, 0, 67, 0.5);
-        position: relative;
-        margin-left: -40px ;
 
-      //  width: 775px;
-      //  height: 500px;
-
-      };
     .btn-light {
       background-color: solid rgba(67, 67, 67, 1);
       border-color: #ccc;
