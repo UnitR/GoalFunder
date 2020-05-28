@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   # goal controller routing
   get 'goals/index', to: 'goals#index', foo: 'groupGoal'
-  get 'persGoals', to: 'goals#persGoals', foo: 'persGoal'
+  get '/persGoals', to: 'goals#persGoals', foo: 'persGoal'
 
 
   # Additional routes
