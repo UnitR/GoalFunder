@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_generated: 2020-05-25
+  type: 
+
+two:
+  date_generated: 2020-05-25
+  type: 

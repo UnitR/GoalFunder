@@ -64,3 +64,13 @@ gem 'paypal-checkout-sdk'
 
 # Figaro for managing ENV more easily
 gem "figaro"
+
+# Generate PDF reports as the "significant back-end component"
+# part of the coursework requirement
+gem 'wicked_pdf'
+group :production do
+  gem 'wkhtmltopdf-heroku'
+end
+
+# Use views instead of maintaining ActiveRecord queries
+gem 'scenic'

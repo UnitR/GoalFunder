@@ -96,6 +96,7 @@
     <orderEntry type="library" scope="PROVIDED" name="sass-rails (v6.0.0, ruby-2.5.7-p206) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sassc (v2.3.0, ruby-2.5.7-p206) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sassc-rails (v2.1.2, ruby-2.5.7-p206) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="scenic (v1.5.2, ruby-2.5.7-p206) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="selenium-webdriver (v3.142.7, ruby-2.5.7-p206) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="shrine (v3.2.1, ruby-2.5.7-p206) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v4.0.0, ruby-2.5.7-p206) [gem]" level="application" />
@@ -113,6 +114,8 @@
     <orderEntry type="library" scope="PROVIDED" name="webpacker (v4.2.2, ruby-2.5.7-p206) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.7.1, ruby-2.5.7-p206) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-extensions (v0.1.4, ruby-2.5.7-p206) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="wicked_pdf (v2.0.2, ruby-2.5.7-p206) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="wkhtmltopdf-heroku (v2.12.5.0, ruby-2.5.7-p206) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="xpath (v3.2.0, ruby-2.5.7-p206) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="zeitwerk (v2.3.0, ruby-2.5.7-p206) [gem]" level="application" />
   </component>

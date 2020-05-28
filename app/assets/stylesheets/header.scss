@@ -160,7 +160,14 @@ a, a:hover, a:focus {
     }
 }
 
-
+.sidebar-nav {
+  #dvReportSeparator {
+    border-top: 1px solid white;
+  }
+  li ul li {
+    list-style-type: none;
+  }
+}
 
 
 //----------------------------------------------------------------------------------------------

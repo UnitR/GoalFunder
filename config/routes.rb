@@ -1,6 +1,8 @@
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
 
+  get 'admin_reports/index'
+  get 'admin_reports/show'
   devise_for :users
   # ROOT
   root to: 'home#index'
@@ -37,5 +39,8 @@ Rails.application.routes.draw do
   # from our own database records.
   post 'payment_processing/make_payment', to: 'payment_processing#make_payment', as: 'make_payment'
   get 'payments/all', to: 'payment_processing#view_all', as: 'view_payment_history'
+
+  # PDF Reports
+  get '/admin_reports/:report_type', to: 'admin_reports#index', as: 'report_gen_path'
 
 end

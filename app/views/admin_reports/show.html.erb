@@ -1,0 +1,58 @@
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Goal Name</th>
+        <th>Owner Name</th>
+        <th>Owner Email</th>
+        <th>Created</th>
+        <th>Target Amount</th>
+        <th>Funded Amount</th>
+        <th>% Funded</th>
+        <th>Keywords</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% report_goals.each do |g| %>
+      <tr>
+        <td><%= g.goal_name %></td>
+        <td><%= "#{g.user_last_name}, #{g.user_first_name}"%></td>
+        <td><%= g.user_email %></td>
+        <td><%= g.goal_created_at %></td>
+        <td>
+          <% if g.goal_target? %>
+            <span>&pound;</span>
+          <% end %>
+          <%= if g.goal_target?
+               g.goal_target
+             else
+               'N/A'
+             end %>
+        <td>
+          <span>&pound;</span>
+          <%= if g.goal_funded?
+                g.goal_funded
+              else
+                '0'
+              end
+          %>
+        </td>
+        <td>
+          <%= if !g.goal_target
+                'N/A'
+              else
+                "#{(g.goal_funded / g.goal_target) * 100}"
+              end
+          %>
+          <% if g.goal_target? %>
+            <span>&#37;</span>
+          <% end %>
+        </td>
+        <td>
+          <%= g.keywords.join(', ') %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
