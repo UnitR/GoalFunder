@@ -25,8 +25,10 @@ Rails.application.routes.draw do
   resources :groups
   resources :users, only: [:show, :index]
   delete "users/:id", to: "users#destroy"
+
   # goal controller routing
   get 'goals/index', to: 'goals#index', foo: 'groupGoal'
+  get 'persGoals', to: 'goals#persGoals', foo: 'persGoal'
 
 
   # Additional routes
