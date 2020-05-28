@@ -2,38 +2,87 @@
 <%= csrf_meta_tags %>
 <!-- rending headers for different views -->
 <!-- On page navbar2 -->
-<div class="pageNavBar">
-<ul class="nav">
-  <li class="nav-item">
-    <a class="nav-link active" href="#" style="color: white;">Personal Goals</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/goals" style="color: white;">Group Goals</a>
-  </li>
-</ul>
 
 
-</div>
 
-<div class="pageDescription">
-
-<div class="pageDescriptionContent">
 
 
 
   <!-- Krupa put ur code here -->
   <% if params[:action] == 'about' %>
-  <h1>
-    THE GOAL FUNDER
-  </h1>
-  <p>
-    Learn more about us, the team and the different services we provide.
-  </p>
+  <!-- navbar descripton -->
+  <div class="pageDescription">
 
-  <% else params[:action] == 'groupGoal' %>
+  <div class="pageDescriptionContent">
+  <div class ="desc-container">
+  <h1 style="float left;">
+    The Goal Funder
+  </h1>
+  <p style="float left;">
+    Learn more about us and the different services we provide.
+  </p>
+  </div>
+
+  </div>
+
+  </div>
+
+  <% elsif params[:action] == 'index' %>
+  <div class="pageNavBar">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active" href="/persGoals" style="color: white;">Personal Goals   </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/goals" style="color: white;">   Group Goals</a>
+    </li>
+  </ul>
+
+
+  </div>
+  <!-- navbar descripton -->
+  <div class="pageDescription">
+
+  <div class="pageDescriptionContent">
   <div class ="desc-container">
   <h1>
     Group Goals
+  </h1>
+  <p>
+    This section of displays the contains information about how much you have saved towards a certain goal. <br> Such as your Recipts towards a goal, a list of your group goals and deadline
+    towards the goal. This <br>information is essential to keeping track of your progress.
+  </p>
+  </div>
+
+  <div class ="btn-container">
+  	<button type="button" class="btn btn-desc" style="margin-top: 2%;"> New Group</button>
+    <br>
+    <button type="button" class="btn btn-desc"> Edit Group</button>
+    </div>
+  </div>
+
+  </div>
+
+  <% elsif params[:action] == 'persGoals' %>
+  <div class="pageNavBar">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active" href="/persGoals" style="color: white;">Personal Goals   </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/goals" style="color: white;">   Group Goals</a>
+    </li>
+  </ul>
+
+
+  </div>
+  <!-- navbar descripton -->
+  <div class="pageDescription">
+
+  <div class="pageDescriptionContent">
+  <div class ="desc-container">
+  <h1>
+    Personal Goals
   </h1>
   <p>
     This section of displays the contains information about how much you have saved towards a certain goal. <br> Such as your Recipts towards a goal, a list of your personal goals and deadline
@@ -42,14 +91,66 @@
   </div>
 
   <div class ="btn-container">
-  	<button type="button" class="btn btn-desc" style="margin-top: 2%;"> More Info</button>
     <br>
-    <button type="button" class="btn btn-desc"> More Info</button>
+    <br>
+    <button type="button" class="btn btn-desc"> New Goal</button>
     </div>
+  </div>
 
+  </div>
+
+  <% elsif params[:action] == 'manage' %>
+  <div class="pageDescription">
+
+  <div class="pageDescriptionContent">
+  <div class ="desc-container">
+  <h1>
+    Manage
+  </h1>
+  <p>
+    Keep track of user data on the web application. <br> More information on this in the test manual.
+  </p>
+  </div>
+
+</div>
+  </div>
+
+  <% elsif params[:action] == 'myAccount' %>
+  <div class="pageNavBar">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active" href="#" style="color: white;">Overview   </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" style="color: white;">   Your Details</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/payments/all" style="color: white;">   Your Payments</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" style="color: white;">   Account & Security</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" style="color: white;">   Privacy</a>
+    </li>
+  </ul>
+
+
+  </div>
+
+  <div class="pageDescription">
+
+  <div class="pageDescriptionContent">
+  <div class ="desc-container">
+  <h1>
+    My Account
+  </h1>
+  <p>
+    Manage your account.
+  </p>
+  </div>
+
+</div>
+  </div>
 
   <% end %>
-
-</div>
-
-</div>

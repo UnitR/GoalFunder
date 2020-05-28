@@ -2,7 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import 'application.scss';
+.Dashboard{
+height: 100%;
+font-family: "Montserrat Alternates", sans-serif;
+-webkit-font-smoothing: antialiased;
+font-smoothing: antialiased;
+background-image: url('sky');
+background-color: black;
 
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed;
+
+}
 
 .row {
     display: table;
@@ -19,6 +32,26 @@
 
 .nav{
   margin-left: 17%;
+}
+
+.col-md-2{
+  min-width: 200px;
+}
+
+.grp-list{
+  margin: 10%;
+}
+
+#mid-box{
+  min-width: 600px;
+}
+
+#grp-name-payment{
+  margin: 5%;
+}
+
+#right-float{
+  min-width: 300px;
 }
 
 .pageNavBar{
@@ -88,7 +121,7 @@
 
 //progress bar
 .bar-container {
-  background: #f0f0f0;
+  background: rgba(67, 67, 67, 0.1);
   height: 400px;
   width: 55%;
   border-radius: 10px;
@@ -101,8 +134,8 @@
 .bar {
   //display: inline-block;
   background: #00F260;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: -webkit-linear-gradient(to left, $color5, $color1);  /* Chrome 10-25, Safari 5.1-6 */
+background: /*rgba(191, 229, 255, 0.9);*/linear-gradient(to left, $color5, $color3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   height: 50px;
   width: 100%;
   border-radius: 10px;

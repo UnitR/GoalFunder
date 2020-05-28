@@ -10,14 +10,14 @@ Rails.application.routes.draw do
 
   # HOME controller routing
   get 'home/index'
-  get 'home/contact'
+  get 'home/contact', foo: 'contact'
   get 'home/sign_up'
   get 'home/log_in'
   get 'home/show_fundraisers'
   get 'home/show_groups'
   get 'home/show_goals'
-  get 'home/myAccount'
-  get 'home/manage'
+  get 'home/myAccount', foo: 'account'
+  get 'home/manage', foo: 'manage'
   get 'about', to: 'home#about', foo: 'about'
   get 'contact', to: 'home#contact'
   post 'request_contact', to: 'home#request_contact'
@@ -27,8 +27,10 @@ Rails.application.routes.draw do
   resources :groups
   resources :users, only: [:show, :index]
   delete "users/:id", to: "users#destroy"
+
   # goal controller routing
   get 'goals/index', to: 'goals#index', foo: 'groupGoal'
+  get 'persGoals', to: 'goals#persGoals', foo: 'persGoal'
 
 
   # Additional routes
