@@ -11,6 +11,7 @@ $color5: #bfe5ff;
 
 body {
     font-family: 'Poppins', sans-serif;
+
     height:100vh;
 
   //  background-color: rgba(67, 67, 67, 0.5);
@@ -30,6 +31,7 @@ p {
     font-weight: 300;
     line-height: 1.7em;
     padding-left: -5%;
+
     //color: #999;
 }
 
@@ -59,7 +61,7 @@ a, a:hover, a:focus {
     position: absolute;
     right: 250px;
     width: 0;
-    height: 105vh;
+    height: 100%;
     margin-right: -250px;
     overflow-y: auto;
     background-color: $color1;
@@ -167,8 +169,10 @@ a, a:hover, a:focus {
 
 //----------------------------------------------------------------------------------------------
 .nav{
+  padding-left: 16%;
+  margin-right: 10px;
   margin: 3px auto;
-  margin-left: 0%;
+
 
 }
 .pageNavBar{
@@ -187,7 +191,7 @@ a, a:hover, a:focus {
 }
 
 .pageDescriptionContent{
-    margin: 20px auto;
+    margin: 10px auto;
     margin-left: 17%;
     padding-bottom: 5px auto;
     text-align: left;
@@ -197,12 +201,15 @@ a, a:hover, a:focus {
 .pageDescription{
 //  height: 400px ;
 float: left;
+background-color: $color2;
+max-height: 170px;
 }
 
 .desc-container{
 text-align: left;
 width: 950px;
 float: left;
+color: black;
 //border: solid blue;
 }
 
