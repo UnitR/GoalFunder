@@ -28,10 +28,7 @@
                 <% end %>
               <li class="nav-item pl-1" style="margin-top: 1%">
                 <% if user_signed_in? %>
-                  <strong ><%= current_user.username %></strong>.
-
-
-
+                  <strong ><%= current_user.username %></strong>
                 <% else %>
                  <%= link_to "Sign up", new_user_registration_path %> |
                  <%= link_to "Login", new_user_session_path %>

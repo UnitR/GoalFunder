@@ -1,4 +1,4 @@
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
 
 
 $color1: #263648;
@@ -11,6 +11,7 @@ $color5: #bfe5ff;
 
 body {
     font-family: 'Poppins', sans-serif;
+    height:100vh;
 
     height:100vh;
 

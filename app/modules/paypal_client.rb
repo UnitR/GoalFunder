@@ -1,6 +1,6 @@
 require 'paypal-checkout-sdk'
 
-module PayPalClient
+module PaypalClient
   class << self
 
     # Set up and return PayPal Ruby SDK environment with PayPal access credentials.
