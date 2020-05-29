@@ -69,7 +69,7 @@ gem "figaro"
 # Generate PDF reports as the "significant back-end component"
 # part of the coursework requirement
 gem 'wicked_pdf'
-group :production do
+group :production, :staging do
   gem 'wkhtmltopdf-heroku'
 end
 

@@ -10,7 +10,7 @@
 
 if Rails.env.production?
   # running in production, so use the Heroku Wicked PDF gem
-  var_exe_path = Gem.bin_path('wkhtmltopdf-heroku', 'wkhtmltopdf')
+  var_exe_path = Gem.bin_path('wkhtmltopdf-heroku', 'wkhtmltopdf-linux-amd64')
 else
   # Local installation of the Wicked PDF executable
   var_exe_path = 'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
