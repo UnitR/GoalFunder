@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  url:  redis://redistogo:f6825f85461e8278ddc0e8e748dd236a@soapfish.redistogo.com:9827/
   channel_prefix: GoalFunder_production
