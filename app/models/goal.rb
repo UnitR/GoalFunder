@@ -1,5 +1,4 @@
 class Goal < ApplicationRecord
-
-  belongs_to :user
-
+  has_one :goal_owner
+  has_many :payments
 end

@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_01_195936) do
+ActiveRecord::Schema.define(version: 2020_05_28_193743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "controllers", force: :cascade do |t|
+    t.string "testcontroller"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "goal_owners", force: :cascade do |t|
     t.bigint "user_id"
@@ -30,6 +36,13 @@ ActiveRecord::Schema.define(version: 2020_05_01_195936) do
     t.string "name"
     t.float "target"
     t.text "keywords", default: [], array: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "goals_reports", force: :cascade do |t|
+    t.date "date_generated"
+    t.string "report_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -121,4 +134,20 @@ ActiveRecord::Schema.define(version: 2020_05_01_195936) do
   add_foreign_key "photos", "users"
   add_foreign_key "user_group_memberships", "groups"
   add_foreign_key "user_group_memberships", "users"
+
+  create_view "report_goals", sql_definition: <<-SQL
+      SELECT g.name AS goal_name,
+      g.created_at AS goal_created_at,
+      g.target AS goal_target,
+      sum(p.amount) AS goal_funded,
+      u.last_name AS user_last_name,
+      u.first_name AS user_first_name,
+      u.email AS user_email,
+      g.keywords
+     FROM (((goals g
+       JOIN goal_owners go ON ((g.id = go.goal_id)))
+       JOIN payments p ON ((g.id = p.goal_id)))
+       JOIN users u ON ((go.user_id = u.id)))
+    GROUP BY g.name, g.created_at, g.target, u.last_name, u.first_name, u.email, g.keywords;
+  SQL
 end

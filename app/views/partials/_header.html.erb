@@ -26,12 +26,9 @@
                      <a class="nav-link text-light" href="/about"><i class="fa fa-circle fa-fw fa-rotate-180 mr-1"></i>About Us</a>
               </li>
                 <% end %>
-              <li class="nav-item pl-1">
+              <li class="nav-item pl-1" style="margin-top: 1%">
                 <% if user_signed_in? %>
-                 Logged in as <strong><%= current_user.username %></strong>.
-
-                 <%= link_to 'Edit profile' , edit_user_registration_path %> |
-                 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                  <strong ><%= current_user.username %></strong>
                 <% else %>
                  <%= link_to "Sign up", new_user_registration_path %> |
                  <%= link_to "Login", new_user_session_path %>
@@ -84,6 +81,24 @@
              <li>
                  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
              </li>
+             <% if current_user.is_admin == true %>
+             <li>
+                 <a href="/home/manage">Manage</a>
+             </li>
+             <li id="dvReportSeparator">
+               Reports
+             </li>
+             <li>
+<!--               <a href="/admin_reports/all">All goals</a>-->
+               <%= link_to "All goals", report_gen_path_url(report_type: :all), format: 'pdf' %>
+             </li>
+             <li>
+               <a href="/admin_reports/funded">Only funded goals</a>
+             </li>
+             <li>
+               <a href="/admin_reports/non_funded">Only non-funded goals</a>
+             </li>
+             <% end %>
          </ul>
      </div>
 </div>

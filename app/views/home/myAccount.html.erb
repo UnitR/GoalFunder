@@ -1,13 +1,15 @@
 
-
-<div class="container" id="bubbles">
+<% stylesheet_link_tag 'application' %>
+<html >
+<body id="grey">
+<div class="container-fluid" id="bubbles" style=" margin-left: 5%; margin-top: 10%;">
     <div class="row">
 <!-- your details bubble link -->
       <div class="col-md-3  prev-account-item">
-          <a href="#">
+          <a href="/users/edit">
           <div class="row">
               <div class="col-md-3">
-               <i class="fa fa-user"></i>
+               <i class="fa fa-user" id="userpic" ></i>
               </div>
           </div>
           <div class="row" >
@@ -19,19 +21,19 @@
           </div>
           </a>
       </div>
+
 <!-- your details bubble link -->
       <div class="col-md-3  prev-account-item">
-          <a href="#">
+          <a href="/payments/all">
           <div class="row">
               <div class="col-md-3">
                <i class="fa fa-university"></i>
               </div>
           </div>
           <div class="row" >
-              <div class="col-md-9" id ="textAcc">
+              <div class="col-md-9" id ="accPaymentHistory">
                   <h5><strong>Your payments</strong></h5>
                   View your transactions
-
               </div>
           </div>
           </a>
@@ -76,3 +78,5 @@
       </div>
 </div>
 </div>
+</div>
+</html>

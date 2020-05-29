@@ -17,12 +17,19 @@
 @import "bootstrap";
 
 
-$color1: #263648;
+$color1: #263648;   
 $color2: #bdc6d1;
 $color3: #f7f7f8;
 $color4: #a9b8c2;
 $color5: #bfe5ff;
 
-$background: url('sky');
-$background_blur: url('sky_blur');
-$background_darkBlur: url('sky_blur2');
+
+
+$background: asset_data_url('sky');
+$background_blur: asset_data_url('sky_blur');
+$background_darkBlur: asset_data_url('sky_blur2');
+
+/* background grey */
+#grey {
+background: $color3;
+}
