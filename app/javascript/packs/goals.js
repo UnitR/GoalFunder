@@ -28,6 +28,8 @@ $(document).ready(function () {
     // Get the authenticity token to submit a POST request
     var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
 
+    $('#confPayment').prop('disabled', true).html('Please wait...');
+
     // Perform AJAX request
     $.ajax({
       method: 'POST',
@@ -40,8 +42,11 @@ $(document).ready(function () {
       },
       dataType: 'json',
       success: function(data) {
-        alert("Successfully contributed £" + data.amount + " to goal!");
         $("#paymentModal").modal("hide");
+        $('#confPayment').prop('disabled', false).html('Proceed to Payment');
+        $('#confPayment').innerText = 'Proceed to Payment';
+        alert("Successfully contributed £" + data.amount + " to goal!\n" +
+                "Developer information: [PayPal Transaction ID: " + data.pp_id + ']');
       },
       error: function(data) {
         alert("failure:" + data.responseText);

@@ -23,9 +23,23 @@ class PaymentProcessingController < ApplicationController
 
       # Save the membership
       respond_to do |format|
-        if @payment.save then
-          format.html { redirect_to payment_processing_view_payment_path, notice:
-              "Successfully contributed to goal '#{Goals.find(@payment.goal_id).name}'!" }
+        if @payment.save
+          # Calculate % funded
+          goal = Goal.find(@payment.goal_id)
+          funded_percent = 0
+          if goal.target?
+            funded = goal.payments.sum(:amount)
+            funded_percent = funded / goal.target * 100
+          end
+
+          # Broadcast
+          ActionCable.server.broadcast 'payments', content: funded_percent
+
+          # Respond
+          format.html {
+            redirect_to payment_processing_view_payment_path, notice:
+              "Successfully contributed to goal '#{Goal.find(@payment.goal_id).name}'!"
+          }
           format.json { render json: @payment, status: :ok }
         else
           format.html { render :show }

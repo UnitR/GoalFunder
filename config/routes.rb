@@ -45,4 +45,7 @@ Rails.application.routes.draw do
   # PDF Reports
   get '/admin_reports/:report_type', to: 'admin_reports#index', as: 'report_gen_path'
 
+  # ActionCable for dynamic payment showing
+  mount ActionCable.server => '/payments'
+
 end

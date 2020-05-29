@@ -90,6 +90,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rails-html-sanitizer (v1.3.0, ruby-2.5.7-p206) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="railties (v6.0.2.2, ruby-2.5.7-p206) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v13.0.1, ruby-2.5.7-p206) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="redis (v4.1.4, ruby-2.5.7-p206) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="regexp_parser (v1.7.0, ruby-2.5.7-p206) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="responders (v3.0.0, ruby-2.5.7-p206) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubyzip (v2.3.0, ruby-2.5.7-p206) [gem]" level="application" />
