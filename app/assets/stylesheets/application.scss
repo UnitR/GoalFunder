@@ -25,9 +25,9 @@ $color5: #bfe5ff;
 
 
 
-$background: asset_data_url('sky');
-$background_blur: asset_data_url('sky_blur');
-$background_darkBlur: asset_data_url('sky_blur2');
+$background: image_url('sky.jpeg');
+$background_blur: image_url('sky_blur.png');
+$background_darkBlur: image_url('sky_blur2.png');
 
 /* background grey */
 #grey {

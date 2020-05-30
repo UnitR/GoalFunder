@@ -6,7 +6,7 @@
 height: 100%;
 -webkit-font-smoothing: antialiased;
 font-smoothing: antialiased;
-background-image: url('sky');
+background-image: image_url('sky.jpeg');
 background-color: black;
 
 background-position: center;
@@ -83,7 +83,7 @@ background-attachment: fixed;
 
 
 .float-box-left{
-  background: url('sky_blur');
+  background: image_url('sky_blur.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -95,7 +95,7 @@ background-attachment: fixed;
 }
 
 .float-box-mid{
-  background: url('sky_blur');
+  background: image_url('sky_blur.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -108,7 +108,7 @@ background-attachment: fixed;
 
 
 .float-box-right{
-  background: url('sky_blur');
+  background: image_url('sky_blur.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

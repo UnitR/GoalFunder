@@ -33,7 +33,7 @@
 	font-family: "Montserrat Alternates", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
-background-image: url('sky');
+background-image: image_url('sky.jpeg');
 background-color: black;
 
   background-position: center;
@@ -54,7 +54,7 @@ background-attachment: fixed;
 
 //transluscent box with dateTime and Group Name
 .box_wide{
-  background: url('sky_blur');
+  background: image_url('sky_blur.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -70,7 +70,7 @@ background-attachment: fixed;
 }
 
 .box_square{
-  background: url('sky_blur');
+  background: image_path('sky_blur.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -82,7 +82,7 @@ background-attachment: fixed;
 
 
   .box_square2{
-    background: url('sky_blur');
+    background: image_url('sky_blur.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -209,7 +209,7 @@ margin-top: 5%;
 }
 
 .shape-container{
-  background-image: url('sky');
+  background-image: image_url('sky.jpeg');
  background-repeat: no-repeat;
  background-size: cover;
 }
