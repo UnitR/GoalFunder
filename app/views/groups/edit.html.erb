@@ -2,5 +2,12 @@
 
 <%= render 'form', group: @group %>
 
+<%= form_for @invite , :url => invites_path do |f| %>
+  <%= f.hidden_field :group_id, :value => @invite.group_id %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <%= f.submit 'Send' %>
+<% end %>
+
 <%= link_to 'Show', @group %> |
 <%= link_to 'Back', groups_path %>

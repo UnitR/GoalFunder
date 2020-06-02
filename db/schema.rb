@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< Updated upstream
 ActiveRecord::Schema.define(version: 2020_05_28_193743) do
+=======
+ActiveRecord::Schema.define(version: 2020_06_01_180236) do
+>>>>>>> Stashed changes
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +57,16 @@ ActiveRecord::Schema.define(version: 2020_05_28_193743) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_groups_on_user_id"
+  end
+
+  create_table "invites", force: :cascade do |t|
+    t.string "email"
+    t.integer "group_id"
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.string "token"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "organisation_details", force: :cascade do |t|
@@ -117,6 +131,8 @@ ActiveRecord::Schema.define(version: 2020_05_28_193743) do
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
     t.boolean "is_admin"
+    t.string "invitation_token"
+    t.integer "invited_by"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["is_organisation"], name: "index_users_on_is_organisation"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

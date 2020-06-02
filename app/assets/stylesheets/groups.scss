@@ -1,0 +1,34 @@
+// Place all the styles related to the Goals controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@import 'application.scss';
+
+.row {
+  display: table;
+}
+
+[class*="col-"] {
+  float: none;
+  display: table-cell;
+  vertical-align: top;
+  //border: solid blue;
+
+}
+
+.nav{
+  margin-left: 17%;
+}
+
+.pageNavBar{
+  background-color: $color1;
+  float: left;
+  border: 1px solid #121314;
+  border-top: 1px solid #2b2e30;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 0px;
+  overflow: hidden;
+  width:100%;
+  min-width: 650px;
+
+}

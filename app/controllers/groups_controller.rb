@@ -1,25 +1,24 @@
 class GroupsController < ApplicationController
 
   # Don't try to get Group record for the index page (show all)
-  before_action :set_group, except: :index
-  layout "secondary-page"
+  before_action :set_group, only: [:show, :edit, :update, :destroy]
+
+ 
   # Ensure that the user has necessary attributes/permitions before allowing them to modify
-  # before_action :check_gorup, only: [:edit, :update, :destroy, :add_member]
+  # before_action :check_group, only: [:edit, :update, :destroy, :add_member]
 
   # GET /groups
   # GET /groups.json
   def index
     @groups = Group.all
-
-    # Devise integration
-    # @groups = current_user.groups.all
+  #@group = current_user.groups.all
 
   end
-
 
   # GET /groups/1
   # GET /groups/1.json
   def show
+    @group = Group.show
   end
 
   # GET /groups/new
@@ -27,7 +26,7 @@ class GroupsController < ApplicationController
     @group = Group.new
 
     # Devise integration
-    # @group.user_id = current_user.id
+    @group.user_id = current_user.id
   end
 
   # GET /groups/1/edit
@@ -39,10 +38,9 @@ class GroupsController < ApplicationController
   def create
 
     @group = Group.new(group_params)
-
     # Devise integrated
     # Creates a new group under the current user to ensure relationship integrity
-    # @group = current_user.groups.new(group_params)
+     @group = current_user.groups.new(group_params)
 
     respond_to do |format|
       if @group.save
@@ -61,13 +59,13 @@ class GroupsController < ApplicationController
 
     # Devise integration
     # Do not allow a user to update another user's groups
-    # if @group.user_id != current_user.id
-    #   respond_to do |format|
-    #     format.html { render :edit }
-    #     format.json { render json: @group.errors, status: :unauthorized }
-    #   end
-    #   return
-    # end
+     if @group.user_id != current_user.id
+       respond_to do |format|
+         format.html { render :edit }
+         format.json { render json: @group.errors, status: :unauthorized }
+       end
+       return
+     end
 
     respond_to do |format|
       if @group.update(group_params)
@@ -87,18 +85,18 @@ class GroupsController < ApplicationController
 
     # Ensure that other users cannot delete groups that do not belong to them
     # Integrated with devise
-    # if @group.user_id = current_user.id
-    #   respond_to do |format|
-    #     format.html { render :index }
-    #     format.json { render json: @group.errors, status: :unauthorized }
-    #   end
+    if @groups.user_id = current_user.id
+       respond_to do |format|
+         format.html { render :index }
+         format.json { render json: @group.errors, status: :unauthorized }
+       end
     #   # Exit early as no need to do anything else
-    #   return
-    # end
+       return
+     end
 
     @group.destroy
     respond_to do |format|
-      format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
+      format.html { redirect_to group_url, notice: 'Group was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -111,17 +109,36 @@ class GroupsController < ApplicationController
   # POST /groups/:id/add_member
   # POST /groups/:id/add_member
   def add_group_member
+    # user = User.find_by_email(params[:email])
+    # group = Group.find(params[:id])
+    # if user
+    #   group.users << user
+    # else
+    #   send_invite user.email
+    #   group.invite << user
+    # end
+
+    emails = params[:invite_emails].split(', ')
+    emails.each do |email|
+      invite = Invite.new(:sender_id => current_user.id, :email => email, group_id => @group.id)
+      if invite.save
+        if invite.recipient != nil
+          InviteMailer.existing_user_invite(invite).deliver
+        else
+          InviteMailer.new_user_invite(invite, new_user_registration_path(:invite_token => @invite.token))
+        end
+      end
 
     # Ensure that other users cannot delete groups that do not belong to them
     # Integrated with devise
-    # if @group.user_id = current_user.id
-    #   respond_to do |format|
-    #     format.html { redirect_to @group, notice: 'Only the owners of groups can add members to them.' }
-    #     format.json { render json: @group.errors, status: :unauthorized }
-    #   end
+     if @group.user_id = current_user.id
+       respond_to do |format|
+         format.html { redirect_to @group, notice: 'Only the owners of groups can add members to them.' }
+         format.json { render json: @group.errors, status: :unauthorized }
+       end
     #   # Exit early as no need to do anything else
-    #   return
-    # end
+       return
+     end
 
     # Create a group membership based on current state
     @user = User.find_by username: params[:username]
@@ -138,7 +155,7 @@ class GroupsController < ApplicationController
         format.json { render json: @group.errors, status: :unprocessable_entity }
       end
     end
-
+    end
   end
 
   private
@@ -160,7 +177,4 @@ class GroupsController < ApplicationController
     raise User::NotAuthorized unless current_user.id = @group.user_id
 
   end
-
-
-
 end

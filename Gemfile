@@ -63,6 +63,9 @@ gem "font-awesome-rails"
 # PayPal SDK gem
 gem 'paypal-checkout-sdk'
 
+#Invation link to group through email
+gem 'devise_invitable', '~> 2.0.0'
+
 # Figaro for managing ENV more easily
 gem "figaro"
 

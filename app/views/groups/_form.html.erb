@@ -13,7 +13,8 @@
 
   <div class="field">
     <%= form.label :name%>
-    <%= form.text_field :name %>
+    <%= form.text_field :name%>
+    <%= form.hidden_field :invited_by, :value => @invited_by %>
   </div>
 
   <div class="actions">

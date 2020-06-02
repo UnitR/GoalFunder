@@ -24,18 +24,27 @@ Rails.application.routes.draw do
 
   # Resources
   resources :goals
+<<<<<<< Updated upstream
   resources :groups
   resources :users, only: [:show, :index]
   delete "users/:id", to: "users#destroy"
+=======
+  resources :invites
+  #resources :groups
+>>>>>>> Stashed changes
 
   # goal controller routing
   get 'goals/index', to: 'goals#index', foo: 'groupGoal'
   get '/persGoals', to: 'goals#persGoals', foo: 'persGoal'
 
 
-  # Additional routes
+  # Group controller routing
   get '/groups/:id/add_member', to: 'groups#show_add_member', as: 'show_add_member'
+  get '/groups/new', to: 'groups#new', as: 'new_group'
+  get '/groups', to: 'groups#index', as: 'groups'
   post '/groups/:id/add_member', to: 'groups#add_group_member', as: 'add_member'
+  post '/groups/new', to: 'groups#create'
+  post '/groups', to: 'groups#index'
 
   # Payment processing. Only need to access PayPal Make Order endpoint and viewing the order
   # from our own database records.
