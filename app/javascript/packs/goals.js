@@ -53,4 +53,47 @@ $(document).ready(function () {
       }
     });
   });
+
+  // Handle clicking on the make payment button
+  $("#confGoal").on("click", function () {
+
+    // Get Identifiers
+    let userId = $("#hdnUserId").val();
+    let groupId = $("#hdnGroupId").val();
+
+    // Get the authenticity token to submit a POST request
+    let AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
+
+    // Goal params
+    let goalName = $("#goalName").val();
+    let goalTarget = $("#goalTarget").val();
+    let goalTags = $("#goalTags").val();
+
+    let url = 'goals/create';
+
+    $('#confGoal').prop('disabled', true).html('Please wait...');
+
+    // Perform AJAX request
+    $.ajax({
+      method: 'POST',
+      url: url,
+      data: {
+        user_id: userId,
+        group_id: groupId,
+        goal_target: goalTarget,
+        goal_keywords: goalTags,
+        goal_name: goalName
+      },
+      dataType: 'json',
+      success: function(data) {
+        $("#goalModal").modal("hide");
+        $('#confGoal').prop('disabled', false).html('Proceed to Payment');
+        $('#confGoal').innerText = 'Proceed to Payment';
+        alert("Successfully created goal " + goalName);
+      },
+      error: function(data) {
+        alert("failure:" + data.responseText);
+      }
+    });
+  });
 });

@@ -31,10 +31,18 @@ class GoalsController < ApplicationController
   # POST /goals
   # POST /goals.json
   def create
-    @goal = Goal.new(goal_params)
+    @goal = Goal.new
+    @goal.name = goal_params['goal_name']
+    @goal.target = goal_params['goal_target']
+    @goal.keywords = goal_params['keywords']
+
+    @goal_owner = GoalOwner.new
+    @goal_owner.user = User.find(goal_params['user_id'])
+    @goal_owner.group = Group.find(goal_params['group_id'])
+    @goal_owner.goal = @goal
 
     respond_to do |format|
-      if @goal.save
+      if @goal_owner.save && @goal.save
         format.html { redirect_to @goal, notice: 'Goal was successfully created.' }
         format.json { render :show, status: :created, location: @goal }
       else
@@ -76,6 +84,6 @@ class GoalsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def goal_params
-      params.require(:goal).permit(:name)
+      params.permit(:goal_name, :goal_keywords, :goal_target, :group_id, :user_id)
     end
 end

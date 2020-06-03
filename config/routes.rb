@@ -29,8 +29,9 @@ Rails.application.routes.draw do
   delete "users/:id", to: "users#destroy"
 
   # goal controller routing
-  get 'goals/index', to: 'goals#index', foo: 'groupGoal'
-  get '/persGoals', to: 'goals#persGoals', foo: 'persGoal'
+  get 'goals/index', to: 'goals#index'
+  get '/persGoals', to: 'goals#persGoals'
+  post '/goals/create', to: 'goals#create'
 
 
   # Additional routes
