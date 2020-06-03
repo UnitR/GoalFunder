@@ -24,14 +24,11 @@ Rails.application.routes.draw do
 
   # Resources
   resources :goals
-<<<<<<< Updated upstream
-  resources :groups
-  resources :users, only: [:show, :index]
-  delete "users/:id", to: "users#destroy"
-=======
-  resources :invites
   #resources :groups
->>>>>>> Stashed changes
+  resources :users, only: [:show, :index]
+  resources :invites
+
+
 
   # goal controller routing
   get 'goals/index', to: 'goals#index', foo: 'groupGoal'
