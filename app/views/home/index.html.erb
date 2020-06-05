@@ -1,0 +1,142 @@
+<%-         #   This is the Dashboard     ALMOST FINISHED JUST NEED TO ADD RUBY FUNCTIONS  #          -%>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+<%= stylesheet_link_tag "header" %>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+
+<%= javascript_pack_tag 'index', 'data-turbolinks-track': 'reload' %>
+
+
+</head>
+
+<body  class="Dashboard" >
+
+<div id ="content" class="container-fluid">
+<div class="row justify-content-center">
+  <div class="col-md-12">
+    <!-- first box begins here -->
+    <div class="box_wide">
+    <div class="row justify-content-center">
+
+      <div class="col-md-4 my-auto">
+
+        <!-- month and Year -->
+        <h3>
+        <br><br>
+        <h1 class="theDate" id=date></h1>
+        <br><br><br>
+        </h3>
+
+
+      </div>
+      <div class="col-md-8 my-auto">
+
+<span>
+
+            <svg viewBox="0 0 625 100" class="group-name-container" preserveAspectRatio="none" style="margin-top: 0%; margin-left: 5%;" height= "125px" width="100%" >
+
+<polygon  points="0 50, 75 0, 40 50, 75 100" style="fill: black; fill-opacity: 0.7; stroke:black;stroke-width:2" width="2" height="2" />
+
+
+
+<text  x="45%" y="50%" text-anchor="middle" fill="white" font-size="60px" font-family="Arial" dy=".3em">[Group Name]
+</text>
+
+<polygon points="100 50, 25 0, 60 50, 25 100" style="fill: black; fill-opacity: 0.7; stroke:black;stroke-width:2" transform='translate(475 0)'  width="2" height="2"/>
+
+
+</svg>
+
+</span>
+
+
+
+
+
+
+
+
+				</div>
+        </div>
+			</div>
+		</div>
+	</div>
+
+  <!-- Second Row -->
+	<div class="row justify-content-center">
+
+    <! left side of Row ->
+    <div class="col-md-4">
+		<div class="box_square">
+
+      <br>
+
+			<h1 class="text" style="  text-align: center;
+        font-size:55px;
+        padding: 0.25%;">
+
+			Money Saved <br>
+			</h1>
+      <svg class="progress-ring" viewBox="0 0 140 120" preserveAspectRatio="xMinYMin meet">
+
+        <circle
+          class="progress-ring__circle"
+          r= "35%"> </circle>
+        <circle
+          class="progress-ring__circle2"
+          r= "35%"> </circle>
+
+
+                  <text  x="32%" y="30%" text-anchor="middle" fill="white" font-size="10px" font-family="Arial" dy=".3em">£
+                     <tspan class="em" x="54%" y="37%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">45 000</tspan>
+                     <tspan class="em" x="52%" y="43%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">_____</tspan>
+                     <tspan class="em" x="50%" y="65%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">50 000</tspan>
+                  </text>
+
+              </svg>
+
+
+              <BR>
+
+			<a href="/persGoals" type="button" class="btn btn-light" style="color: white;"> More Info</button>
+      </a>
+		</div>
+    </div>
+
+    <!- right side of Row ->
+    <div class="col-md-8">
+
+
+ <div class="box_square2">
+      <div class="chart-container">
+                <chartjs class="chartjs-hidden-iframe" tabindex="-1" ></chartjs>
+                <canvas id="myChart"  width="1140" height="700" class="chart-dm"></canvas></div>
+
+
+              </div>
+
+    </div>
+	</div>
+</div>
+
+</body>
+  </html>
+<!-  temp value for progress ring value - use this to adjust the progress ring.  in future the ring should adjust basaed of % of the Goals sum completed. ->
+  <input
+  value="70"
+  type="number"
+  step="5"
+  min="0"
+  max="100"
+  style="color: black"
+></input
+
+<% if @home_banner %>
+ <h1> FUCKING NERD </h1>
+
+ <% end %>

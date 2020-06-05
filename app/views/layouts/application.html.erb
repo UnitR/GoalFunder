@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GoalFunder</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render "partials/header" %>
+
+    <div id="user_nav">
+      <% if current_user %>
+        Signed in as <strong><%= current_user.name %></strong>!
+        <%= linl_to "Sign out", signout_path, id: "sign_out" %>
+      <% else %>
+        <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+      <% end %>
+    </div>
+
+    <% flash.each do |key, value| %>
+    <%= content_tag :div, content_tag(:p, value), id: "#{key}" unless value.blank? %>
+    <% end %>
+
+   <%= yield %>
+  </body>
+</html>

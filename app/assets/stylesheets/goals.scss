@@ -1,0 +1,257 @@
+// Place all the styles related to the Goals controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@import 'application.scss';
+.Dashboard{
+height: 100%;
+-webkit-font-smoothing: antialiased;
+font-smoothing: antialiased;
+background-image: url('sky');
+background-color: black;
+
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed;
+
+}
+
+.row {
+    display: table;
+    //min-height: 150px;
+}
+
+[class*="col-"] {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+    //border: solid blue;
+
+}
+
+.nav{
+  margin-left: 17%;
+}
+
+.col-md-2{
+  min-width: 200px;
+}
+
+.grp-list{
+  margin: 10%;
+}
+
+#mid-box{
+  min-width: 600px;
+}
+
+#grp-name-payment{
+  margin: 5%;
+}
+
+#right-float{
+  min-width: 300px;
+}
+
+.pageNavBar{
+  background-color: $color1;
+  float: left;
+   border: 1px solid #121314;
+   border-top: 1px solid #2b2e30;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 0px;
+   overflow: hidden;
+   width:100%;
+   min-width: 650px;
+
+}
+
+.pageDescription{
+  background-color: $color2;
+    float: left;
+   border: 1px solid #121314;
+   border-top: 1px solid #2b2e30;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 0px;
+   overflow: hidden;
+   width:100%;
+   min-width: 650px;
+
+}
+
+
+.float-box-left{
+  background: url('sky_blur');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border-radius: 5px / 5px;
+  border: 2px solid rgba(67, 67, 67, 0.5);
+  margin: 5px;
+  min-width: 200px;
+}
+
+.float-box-mid{
+  background: url('sky_blur');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border-radius: 5px / 5px;
+  border: 2px solid rgba(67, 67, 67, 0.5);
+  margin: 5px ;
+  min-width: 600px;
+}
+
+
+.float-box-right{
+  background: url('sky_blur');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border-radius: 5px / 5px;
+  border: 2px solid rgba(67, 67, 67, 0.5);
+  margin: 5px;
+}
+
+//progress bar
+.bar-container {
+  background: rgba(67, 67, 67, 0.5);
+  height: 400px;
+  width: 55%;
+  border-radius: 10px;
+  margin-top: 10%;
+  margin-left: 20%;
+  margin: 15%;
+  opacity: 0.8;
+  border: 1px solid black;
+}
+
+.bar {
+  //display: inline-block;
+  background: #00F260;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, $color5, $color3);  /* Chrome 10-25, Safari 5.1-6 */
+background: rgba(87, 234, 242, 1) ;//linear-gradient(to left, $color1, $color2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 50px;
+  width: 100%;
+  border-radius: 10px;
+  transition: width 400ms;
+  border: 0.5px solid black;
+
+}
+
+div#myDiv {
+  -ms-transform: rotate(180deg); /* IE 9 */
+  transform: rotate(180deg); /* Standard syntax */
+}
+
+.progress-bar-vertical {
+  width: 20px;
+  min-height: 100px;
+  display: flex;
+  align-items: flex-end;
+  margin-right: 20px;
+  float: left;
+}
+
+.progress-bar-vertical .progress-bar {
+  width: 100%;
+  height: 0;
+  -webkit-transition: height 0.6s ease;
+  -o-transition: height 0.6s ease;
+  transition: height 0.6s ease;
+}
+
+
+
+
+// table-
+table {
+	width: 800px;
+	border-collapse: collapse;
+	overflow: hidden;
+//	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+border: 2px solid rgba(0,0,0,0.5);
+}
+
+th,
+td {
+	padding: 15px;
+	background-color: rgba(169,184,194,0.9);
+//	color: #fff;
+  text-align: left;
+}
+
+th {
+	text-align: left;
+
+}
+
+#money{
+  font-size: 25px;
+  text-align: right;
+  padding: 1%;
+}
+
+#grp-list{
+  font-size: 20px;
+}
+thead {
+	th {
+		background-color: #55608f;
+	}
+}
+
+tbody {
+
+	tr {
+		&:hover {
+			background-color: rgba(255,255,255,0.6);
+		}
+	}
+	td {
+		position: relative;
+		&:hover {
+			&:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: -9999px;
+				bottom: -9999px;
+				background-color: rgba(255,255,255,0.2);
+				z-index: -1;
+			}
+		}
+	}
+}
+.table-responsive{
+
+}
+
+//Button
+#btnGoals{
+  margin-left: 20%;
+  margin: 1%;
+  width: 150px;
+  background: $color5;
+  border: 2px solid black;
+  color: black;
+}
+
+#text{
+  padding-bottom: 225%;
+  font-size: 25px;
+  color: rgba(0,0,0, 0.4);
+}
+
+//#paymentAmount::before {
+//  content: "£";
+//  color: black;
+//  position: absolute;
+//  right: -10px;
+//}
