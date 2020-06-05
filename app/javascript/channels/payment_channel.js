@@ -23,5 +23,6 @@ consumer.subscriptions.create("PaymentChannel", {
     else {
       progressBar.css('height', data.content + '%');
     }
+    $('#progressText').html(`${Math.round(data.content)}%`);
   }
 });

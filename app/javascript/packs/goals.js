@@ -1,22 +1,5 @@
 $(document).ready(function () {
 
-  var btn = document.getElementById('btn');
-  var bar = document.getElementById('bar');
-  var txt = document.getElementById('text');
-  var count = 0;
-  // Listen for an event on the button
-  // Increase the width of the bar by 10 percent(10%)
-  btn.addEventListener('click', () => {
-    //  bar.style.width = count + '%';
-    bar.style.height = count + '%';
-    txt.innerHTML = count + '%';
-    if (count === 100) {
-      count = 0;
-    } else {
-      count = count + 10;
-    }
-  });
-
   // Handle clicking on the make payment button
   $("#confPayment").on("click", function () {
 
@@ -44,7 +27,9 @@ $(document).ready(function () {
       success: function(data) {
         $("#paymentModal").modal("hide");
         $('#confPayment').prop('disabled', false).html('Proceed to Payment');
-        $('#confPayment').innerText = 'Proceed to Payment';
+        let contrib = $('#persContribution').html();
+        contrib = 1*contrib + 1*amount;
+        $('#persContribution').html(Math.round(contrib));
         alert("Successfully contributed £" + data.amount + " to goal!\n" +
                 "Developer information: [PayPal Transaction ID: " + data.pp_id + ']');
       },
@@ -88,11 +73,47 @@ $(document).ready(function () {
       success: function(data) {
         $("#goalModal").modal("hide");
         $('#confGoal').prop('disabled', false).html('Proceed to Payment');
-        $('#confGoal').innerText = 'Proceed to Payment';
         alert("Successfully created goal " + goalName);
+        refreshBody();
       },
       error: function(data) {
         alert("failure:" + data.responseText);
+      }
+    });
+  });
+
+  $("td.grp-list").on('click', function (e) {
+
+    // Obtain the selected group id
+    let groupId = e.target.dataset.group;
+
+    // Obtain group information through an ajax request
+    $.ajax({
+      method: 'GET',
+      url: `/groups/${groupId}`,
+      dataType: 'json',
+      success: function(data) {
+        $("#headingGroupName").html(data.group_name);
+        let progressBar = $('#bar');
+        if (data.funded_amount > 100) {
+          progressBar.css('height', '100%');
+          progressBar.show();
+        }
+        else if (data.funded_amount == 0) {
+          progressBar.css('height', '0%');
+          progressBar.hide();
+        }
+        else {
+          progressBar.css('height', data.funded_amount + '%');
+          progressBar.show();
+        }
+        $("#progressText").html(`${Math.round(data.funded_amount)}%`);
+        $("#hdnGroupId").val(groupId);
+        $("#persContribution").html(data.pers_contrib);
+        $(".hdnGoalId").val(data.group_goal.id);
+      },
+      error: function(data) {
+        alert(data.innerText);
       }
     });
   });

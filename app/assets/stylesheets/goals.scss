@@ -197,8 +197,9 @@ th {
   padding: 1%;
 }
 
-#grp-list{
+td.grp-list{
   font-size: 20px;
+  cursor: pointer;
 }
 thead {
 	th {
@@ -243,7 +244,7 @@ tbody {
   color: black;
 }
 
-#text{
+#progressText{
   padding-bottom: 225%;
   font-size: 25px;
   color: rgba(0,0,0, 0.4);
@@ -255,3 +256,8 @@ tbody {
 //  position: absolute;
 //  right: -10px;
 //}
+
+#dvNoGoals {
+  margin-top:300px;
+  color: black;
+}

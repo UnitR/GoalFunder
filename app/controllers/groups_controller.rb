@@ -9,17 +9,34 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all
-
     # Devise integration
-    # @groups = current_user.groups.all
-
+    @groups = []
+    current_user.user_group_memberships.each do |gm|
+      @groups << gm.group
+    end
   end
 
 
   # GET /groups/1
   # GET /groups/1.json
   def show
+
+    group_goal = nil
+    funded_amount = 0
+    if @group.goal_owners.any?
+      group_goal =  @group.goal_owners.first().goal
+      funded_amount = (group_goal.payments.sum(:amount) / group_goal.target) * 100
+      pers_contrib = current_user.payments.where("goal_id = #{group_goal.id}").sum('amount');
+    end
+
+    render json: {
+          group_name: @group.name,
+          group_goal: group_goal,
+          group_members: @group.user_group_memberships,
+          funded_amount: funded_amount,
+          pers_contrib: pers_contrib
+      }, status: :ok
+
   end
 
   # GET /groups/new

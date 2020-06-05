@@ -4,15 +4,24 @@ class GoalsController < ApplicationController
   # GET /goals
   # GET /goals.json
   def index
-    @goals = Goal.all
+    @goals = []
+    current_user.user_group_memberships.each do |ugm|
+      @goals << UserGoalsAll.where("group_id = #{ugm.group_id}")
+    end
+    @first_goal = @goals.first().first()
+  end
+
+  def persGoals
+    @goals = []
+    current_user.user_group_memberships.each do |ugm|
+      @goals << UserGoalsAll.where("user_id = #{current_user.id}")
+    end
+    @first_goal = @goals.first().first()
   end
 
   # GET /goals/1
   # GET /goals/1.json
   def show
-
-
-
     respond_to do |format|
       format.html { render @goal }
       format.json { render json: @goal.to_json(:include => [:goal_owner => {:include => [:user]}]) }
@@ -37,8 +46,11 @@ class GoalsController < ApplicationController
     @goal.keywords = goal_params['keywords']
 
     @goal_owner = GoalOwner.new
-    @goal_owner.user = User.find(goal_params['user_id'])
-    @goal_owner.group = Group.find(goal_params['group_id'])
+    if goal_params['group_id'] > 0
+      @goal_owner.group = Group.find(goal_params['group_id'])
+    else
+      @goal_owner.user = User.find(goal_params['user_id'])
+    end
     @goal_owner.goal = @goal
 
     respond_to do |format|

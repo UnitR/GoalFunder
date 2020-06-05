@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_28_193743) do
+ActiveRecord::Schema.define(version: 2020_06_04_172014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(version: 2020_05_28_193743) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_groups_on_user_id"
+  end
+
+  create_table "invites", force: :cascade do |t|
+    t.string "email"
+    t.integer "group_id"
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.string "token"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "organisation_details", force: :cascade do |t|
@@ -149,5 +159,36 @@ ActiveRecord::Schema.define(version: 2020_05_28_193743) do
        JOIN payments p ON ((g.id = p.goal_id)))
        JOIN users u ON ((go.user_id = u.id)))
     GROUP BY g.name, g.created_at, g.target, u.last_name, u.first_name, u.email, g.keywords;
+  SQL
+  create_view "user_goals_alls", sql_definition: <<-SQL
+      SELECT g.id AS goal_id,
+      g.name AS goal_name,
+      g.target AS goal_target,
+      grp.id AS group_id,
+      grp.name AS group_name,
+      NULL::bigint AS user_id,
+      sum(p.amount) AS contr_amount
+     FROM (((((goals g
+       LEFT JOIN goal_owners go ON ((g.id = go.goal_id)))
+       LEFT JOIN groups grp ON ((grp.id = go.group_id)))
+       LEFT JOIN user_group_memberships ugm ON ((grp.id = ugm.group_id)))
+       LEFT JOIN users u ON ((ugm.user_id = u.id)))
+       LEFT JOIN payments p ON ((u.id = p.user_id)))
+    WHERE ((go.group_id IS NOT NULL) AND (go.user_id IS NULL))
+    GROUP BY g.name, grp.id, grp.name, g.target, g.id
+  UNION ALL
+   SELECT g.id AS goal_id,
+      g.name AS goal_name,
+      g.target AS goal_target,
+      NULL::bigint AS group_id,
+      NULL::character varying AS group_name,
+      u.id AS user_id,
+      sum(p.amount) AS contr_amount
+     FROM (((goals g
+       LEFT JOIN goal_owners go ON ((g.id = go.goal_id)))
+       LEFT JOIN users u ON ((u.id = go.user_id)))
+       LEFT JOIN payments p ON ((p.user_id = u.id)))
+    WHERE ((go.user_id IS NOT NULL) AND (go.group_id IS NULL))
+    GROUP BY g.name, u.id, g.target, g.id;
   SQL
 end

@@ -1,97 +1,97 @@
-<%-         #   This is the Personal Page     WORK IN PROGRESS  #          -%>
-<html lang="en"><head>
-  <%= stylesheet_link_tag "goals" %>
-  <%= stylesheet_link_tag "header" %>
-  <%= javascript_pack_tag 'goals', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag "goals" %>
+<%= stylesheet_link_tag "header" %>
+<%= javascript_pack_tag 'goals', 'data-turbolinks-track': 'reload' %>
 
-</head>
-
-<body class="Dashboard">
-  <div id ="content" class="container"   style="  margin-top: 13%; margin-left: 7%;">
-  	<div class="row">
-
-      <!-- left float -->
-
-<div class="float-box-left">
-  		<div class="col-md-2">
-
-  			<h2 class="grp-list" >
-  			Group List
-  			</h2>
-        <div class="table-responsive">
-        <table id="productSizes" class="table">
-<tbody >
-  <tr>
-    <td id="grp-list">Eagles</td>
-  </tr>
-  <tr>
-    <td id="grp-list">Group 14</td>
-  </tr>
-  <tr>
-    <td id="grp-list">Boston</td>
-  </tr>
-  <tr>
-    <td id="grp-list">Mephis</td>
-  </tr>
-  <tr>
-    <td id="grp-list" >Cell 1</td>
-  </tr>
-</tbody>
-</table>
-</div>
-  		</div> </div>
-
-        <!-- middle float -->
-        <div class="float-box-mid">
-  		<div class="col-md-8" id="mid-box">
-  			<div class="row">
-  				<div class="col-md-4">
-
-      <!-- progress bar -->
-        <div class="bar-container" id="myDiv">
-          <div class="bar" id="bar">
-          <div class="text" id="text" style="transform: rotate(180deg)">20%</div></div>
-        </div>
-
-
-  				</div>
-  				<div class="col-md-8">
-  					<h3  id="grp-name-payment">
-  						[GROUP NAME] <br>Payments
-  					</h3>
-            <div class="table-responsive">
+<% if @first_goal %>
+<div class="Dashboard">
+  <% if @first_goal %>
+    <input type="hidden" id="hdnGroupId" value="<%= @first_goal.group_id %>"/>
+  <% else %>
+    <input type="hidden" id="hdnGroupId" value="0"/>
+  <% end %>
+  <div id="content" class="container" style="  margin-top: 13%; margin-left: 7%;">
+    <div class="row">
+      <div class="float-box-left">
+        <div class="col-md-2">
+          <h2 class="grp-list">
+            Group List
+          </h2>
+          <div class="table-responsive">
             <table id="productSizes" class="table">
-		<tbody>
-			<tr>
-				<td>Klyde Moradeyo <br>
-        15/05/20  </td>
-				<td  id="money"><br>£1000</td>
-			</tr>
-			<tr>
-				<td>Alejandro Hernandez <br> 11/05/20</td>
-				<td  id="money"><br>£500</td>
-			</tr>
-			<tr>
-				<td>Krupa Patel <br> 04/04/20</td>
-				<td  id="money"><br>£300</td>
-			</tr>
-			<tr>
-				<td>Angel Pelwhatever <br> 04/03/20 </td>
-				<td id="money"><br>£425</td>
-			</tr>
-		</tbody>
-	</table>
-  </div>
-<br>
-  					<button type="button" class="btn btn-success" id="btnGoals" data-toggle="modal" data-target="#paymentModal" >
-  						New Payment
-  					</button>
-  					<a href="/new"type="button" class="btn btn-success" id="btnGoals">
-  						New Goal
-  					</a>
-  				</div>
-  			</div>
-  		</div>
+              <tbody>
+              <% if @first_goal %>
+                <% @goals.each do |goal| %>
+                  <tr>
+                    <td class="grp-list" data-group="<%= goal[0].group_id %>"><%= goal[0].group_name %></td>
+                  </tr>
+                <% end %>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- middle float -->
+      <div class="float-box-mid">
+        <div class="col-md-8" id="mid-box">
+          <div class="row">
+            <div class="col-md-4">
+              <!-- progress bar -->
+              <% if @first_goal %>
+                <div class="bar-container" id="myDiv">
+                  <div class="bar" id="bar" style="height: <%= [@first_goal.contr_amount, 100].min %>%">
+                    <div class="text" id="progressText" style="transform: rotate(180deg)">
+                      <%= (@first_goal.contr_amount / @first_goal.goal_target * 100).round %>%
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <div class="col-md-8">
+              <% if @first_goal %>
+                <h3 id="grp-name-payment">
+                  <span id='headingGroupName'>
+                    <%= @first_goal.group_name %>
+                  </span>
+                  <br>
+                  Goal Contributions
+                </h3>
+              <% end %>
+              <div class="table-responsive">
+                <table id="productSizes" class="table">
+                  <tbody>
+                  <tr>
+                    <td>Klyde Moradeyo <br>
+                      15/05/20
+                    </td>
+                    <td id="money"><br>£1000</td>
+                  </tr>
+                  <tr>
+                    <td>Alejandro Hernandez <br> 11/05/20</td>
+                    <td id="money"><br>£500</td>
+                  </tr>
+                  <tr>
+                    <td>Krupa Patel <br> 04/04/20</td>
+                    <td id="money"><br>£300</td>
+                  </tr>
+                  <tr>
+                    <td>Angel Peltekov <br> 04/03/20</td>
+                    <td id="money"><br>£425</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <br>
+              <button type="button" class="btn btn-success" id="btnPayments" data-toggle="modal" data-target="#paymentModal">
+                New Payment
+              </button>
+              <button type="button" class="btn btn-success" id="btnGoals" data-toggle="modal" data-target="#goalModal">
+                New Goal
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- right float -->
@@ -100,95 +100,139 @@
       <div class="col-md-2" id="right-float">
 
         <div class="float-box-right">
-  			<div class="row">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="xMinYMin meet" width="275px" height="150px">
-
-
-                      <text  x="100%" y="15%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">Days Left
-                         <tspan class="em" x="100%" y="50%" text-anchor="middle" fill="white" font-size="40px" font-family="Arial" dy=".3em">365</tspan>
-                         <tspan class="em" x="100%" y="85%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">Deadline Date</tspan>
-                      </text>
-
-                  </svg>
-
-  			</div>
+          <div class="row">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="xMinYMin meet" width="275px" height="150px">
+              <text x="100%" y="15%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">Days
+                Left
+                <tspan class="em" x="100%" y="50%" text-anchor="middle" fill="white" font-size="40px" font-family="Arial" dy=".3em">365</tspan>
+                <tspan class="em" x="100%" y="85%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">Deadline
+                  Date
+                </tspan>
+              </text>
+            </svg>
+          </div>
         </div>
 
         <!-- right float middle -->
         <div class="float-box-right">
-  			<div class="row">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="xMinYMin meet" width="275px" height="150px" >
-
-
-                      <text  x="100%" y="20%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">Your Contribution
-                         <tspan class="em" x="60%" y="50%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">£</tspan>
-                         <tspan class="em" x="100%" y="60%" text-anchor="middle" fill="white" font-size="40px" font-family="Arial" dy=".3em">500</tspan>
-                      </text>
-
-                  </svg>
-  			</div>
+          <div class="row">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="xMinYMin meet" width="275px" height="150px">
+              <text x="100%" y="20%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">
+                Your Contribution
+                <tspan class="em" x="60%" y="50%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">£</tspan>
+                <tspan id="persContribution" class="em" x="100%" y="60%" text-anchor="middle" fill="white" font-size="40px" font-family="Arial" dy=".3em"><%= @first_goal.contr_amount.round unless !@first_goal %></tspan>
+              </text>
+            </svg>
+          </div>
         </div>
 
-          <!-- right float bottom -->
-          <div class="float-box-right">
-  			<div class="row">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="xMinYMin meet" width="275px" height="150px" >
-
-
-                      <text  x="32%" y="30%" text-anchor="middle" fill="white" font-size="10px" font-family="Arial" dy=".3em">
-
-                      </text>
-
-                  </svg>
-  			</div>
+        <!-- right float bottom -->
+        <div class="float-box-right">
+          <div class="row">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="xMinYMin meet" width="275px" height="150px">
+              <text x="100%" y="20%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">
+                Goal Target
+                <tspan class="em" x="60%" y="50%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">£</tspan>
+                <tspan id="persContribution" class="em" x="100%" y="60%" text-anchor="middle" fill="white" font-size="40px" font-family="Arial" dy=".3em"><%= @first_goal.goal_target.round unless !@first_goal %></tspan>
+              </text>
+            </svg>
+          </div>
         </div>
-
-
-  		</div>
-  	</div>
+      </div>
+    </div>
   </div>
 
-</body>
-</html>
-<!-- Text -->
+  <!-- Payment Modal -->
+  <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" style="color:black">Payment options</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group row" style="padding-left: 10px">
+            <label for="paymentAmount" style="color:black" class="col-form-label">Amount to donate:</label>
+            <div class="col-sm-7">
+              <input id="paymentAmount" type="text" class="form-control" text="10"/>
+            </div>
+            <div>
+              <% if user_signed_in? %>
+                <input type="hidden" id="hdnUserId" value="<%= current_user.id %>"/>
+              <% else %>
+                <input type="hidden" id="hdnUserId" value="0"/>
+              <% end %>
+              <% if @first_goal %>
+                <input type="hidden" id="hdnGoalId" value="<%= @first_goal.goal_id %>"/>
+              <% else %>
+                <input type="hidden" id="hdnGoalId" value="0"/>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="confPayment">Proceed to Payment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div id="dvNoGoals">
+    <h3 id="hNoGoals">
+      No goals yet! Create your first one by clicking the button below.
+    </h3>
+    <button type="button" class="btn btn-desc" id="btnGoals" data-toggle="modal" data-target="#goalModal">
+      New Goal
+    </button>
+  </div>
+<% end %>
 
-<!--   End Of Button  -->
-
-<!-- End Of Text -->
-<!--  Button   -->
-<button class="btn" type="button" id="btn">+10</button>
-
-
-<!-- Payment Modal -->
-<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog">
+<!-- Goal Modal -->
+<div class="modal fade" id="goalModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" style="color:black">Payment options</h5>
+        <h5 class="modal-title" style="color:black">Goal Details</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="form-group row" style="padding-left: 10px">
-          <label for="paymentAmount" style="color:black" class="col-form-label">Amount to donate:</label>
+          <label for="goalName" style="color:black;text-align: left" class="col-form-label col-sm-4">Goal Name:</label>
           <div class="col-sm-7">
-            <input id="paymentAmount" type="text" class="form-control" text="10" />
+            <input id="goalName" type="text" class="form-control"/>
           </div>
           <div>
             <% if user_signed_in? %>
-              <input type="hidden" id="hdnUserId" value="<%= current_user.id %>" />
+              <input type="hidden" id="hdnUserId" value="<%= current_user.id %>"/>
             <% else %>
-              <input type="hidden" id="hdnUserId" value="0" />
+              <input type="hidden" id="hdnUserId" value="0"/>
             <% end %>
-              <input type="hidden" id="hdnGoalId" value="1" />
+            <input type="hidden" id="hdnGoalId" value="1"/>
+          </div>
+        </div>
+        <div class="form-group row" style="padding-left: 10px">
+          <label for="goalTarget" style="color:black;text-align: left" class="col-form-label col-sm-4">Goal Target:</label>
+          <div class="col-sm-7">
+            <input id="goalTarget" type="text" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group row" style="padding-left: 10px">
+          <label for="goalTags" style="color:black;text-align: left" class="col-form-label col-sm-4">Tags:</label>
+          <div class="col-sm-7">
+            <input id="goalTags" type="text" class="form-control"/>
           </div>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="confPayment">Proceed to Payment</button>
+        <button type="button" class="btn btn-primary" id="confGoal">Create</button>
       </div>
     </div>
   </div>
+</div>
 </div>
