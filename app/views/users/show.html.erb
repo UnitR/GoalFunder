@@ -1,67 +1,59 @@
-
 <style media="screen">
-  .box{
+  .box {
     width: 100%;
-    background-color:#a9b8c2;
+    background-color: #a9b8c2;
   }
 </style>
 
 <div class="panel panel-default">
-  <div class="panel-heading">  <h4 style="color: black;" >User Profile</h4></div>
-   <div class="panel-body">
+  <div class="panel-heading"><h4 style="color: black;">User Profile</h4></div>
+  <div class="panel-body">
 
     <div class="box box-info">
-            <div class="col-sm-6">
-            <h4 style="color:#00b1b1;"><%= @user.username%></h4>
-            <%if @user.is_admin == false%>
+      <div class="col-sm-6">
+        <h4 style="color:#00b1b1;"><%= @user.username %></h4>
+        <% if @user.is_admin == false %>
 
-              <%if @user.is_organisation%>
-                <span><p>Organisation Account</p></span>
-              <%else%>
-                <span><p>User Account</p></span>
-              <%end%>
-            <%else%>
-            <span><p>*Administrator*</p></span>
-            <%end%>
+          <% if @user.is_organisation %>
+            <span><p>Organisation Account</p></span>
+          <% else %>
+            <span><p>User Account</p></span>
+          <% end %>
+        <% else %>
+          <span><p>*Administrator*</p></span>
+        <% end %>
 
-            </div>
-            <div class="clearfix"></div>
-            <hr style="margin:5px 0 5px 0;">
-
-
-            <div class="col-sm-2 col-xs-2 pull-left ">Email:</div><div class="col-sm-3 "><%= @user.email%></div>
-                 <div class="clearfix"></div>
-            <div class="bot-border"></div>
-            <br>
-
-            <div class="col-sm-2 col-xs-2 pull-left ">Date Of Joining:</div><div class="col-sm-3"><%= @user.created_at%></div>
-
-                <div class="clearfix"></div>
-            <div class="bot-border"></div>
-            <br>
-
-            <div class="col-sm-2 col-xs-2 pull-left " >Last sign in:</div><div class="col-sm-3"><%= @user.last_sign_in_at%></div>
-
-                <div class="clearfix"></div>
-            <div class="bot-border"></div>
-        
-            <div class="">
-              <%= link_to "Back", "/home/manage", class: 'btn btn-outline-info' %>
-            </div>
-
-            <br>
-
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-
-        </div>
+      </div>
+      <div class="clearfix"></div>
+      <hr style="margin:5px 0 5px 0;">
 
 
+      <div class="col-sm-2 col-xs-2 pull-left ">Email:</div>
+      <div class="col-sm-3 "><%= @user.email %></div>
+      <div class="clearfix"></div>
+      <div class="bot-border"></div>
+      <br>
+
+      <div class="col-sm-2 col-xs-2 pull-left ">Date Of Joining:</div>
+      <div class="col-sm-3"><%= @user.created_at %></div>
+
+      <div class="clearfix"></div>
+      <div class="bot-border"></div>
+      <br>
+
+      <div class="col-sm-2 col-xs-2 pull-left ">Last sign in:</div>
+      <div class="col-sm-3"><%= @user.last_sign_in_at %></div>
+
+      <div class="clearfix"></div>
+      <div class="bot-border"></div>
+
+      <div class="">
+        <%= link_to "Back", "/home/manage", class: 'btn btn-outline-info' %>
+      </div>
+
+      <br>
+      <!-- /.box-body -->
     </div>
-    </div>
-</div>
-
-
-   </div>
+    <!-- /.box -->
+  </div>
 </div>

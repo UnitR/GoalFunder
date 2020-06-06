@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'admin_reports/index'
   get 'admin_reports/show'
-  devise_for :users
+  # devise_for :users
   # ROOT
   root to: 'home#index'
 
@@ -25,8 +25,10 @@ Rails.application.routes.draw do
   # Resources
   resources :goals
   resources :groups
-  resources :users, only: [:show, :index]
-  delete "users/:id", to: "users#destroy"
+  # resources :users, only: [:show, :index]
+  get 'manage_users/:id', to: 'users#show'
+  delete "manage_users/:id", to: "users#destroy"
+  get 'manage_users/all', to: 'users#index'
 
   # goal controller routing
   get 'goals/index', to: 'goals#index'
@@ -48,5 +50,9 @@ Rails.application.routes.draw do
 
   # ActionCable for dynamic payment showing
   mount ActionCable.server => '/payments'
+
+  devise_for :users,:controllers => { :omniauth_callbacks => 'users/omniauth_callbacks' }
+             # :controllers => { :omniauth_callbacks => 'users/omniauth_callbacks' },
+             # :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
 
 end

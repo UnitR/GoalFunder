@@ -75,3 +75,6 @@ end
 
 # Use views instead of maintaining ActiveRecord queries
 gem 'scenic'
+
+# Facebook OmniAuth
+gem 'omniauth-facebook'
