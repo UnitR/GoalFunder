@@ -45,6 +45,7 @@ $(document).ready(function () {
     // Get Identifiers
     let userId = $("#hdnUserId").val();
     let groupId = $("#hdnGroupId").val();
+    let target_type = $(this).data('target');
 
     // Get the authenticity token to submit a POST request
     let AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
@@ -67,14 +68,15 @@ $(document).ready(function () {
         group_id: groupId,
         goal_target: goalTarget,
         goal_keywords: goalTags,
-        goal_name: goalName
+        goal_name: goalName,
+        target: target_type
       },
       dataType: 'json',
       success: function(data) {
         $("#goalModal").modal("hide");
         $('#confGoal').prop('disabled', false).html('Proceed to Payment');
         alert("Successfully created goal " + goalName);
-        refreshBody();
+        window.top.location.reload(true);
       },
       error: function(data) {
         alert("failure:" + data.responseText);
@@ -93,21 +95,8 @@ $(document).ready(function () {
       url: `/groups/${groupId}`,
       dataType: 'json',
       success: function(data) {
+        setFundedAmount(data.funded_amount);
         $("#headingGroupName").html(data.group_name);
-        let progressBar = $('#bar');
-        if (data.funded_amount > 100) {
-          progressBar.css('height', '100%');
-          progressBar.show();
-        }
-        else if (data.funded_amount == 0) {
-          progressBar.css('height', '0%');
-          progressBar.hide();
-        }
-        else {
-          progressBar.css('height', data.funded_amount + '%');
-          progressBar.show();
-        }
-        $("#progressText").html(`${Math.round(data.funded_amount)}%`);
         $("#hdnGroupId").val(groupId);
         $("#persContribution").html(data.pers_contrib);
         $(".hdnGoalId").val(data.group_goal.id);
@@ -117,4 +106,43 @@ $(document).ready(function () {
       }
     });
   });
+
+  $("td.goal-list").on('click', function (e) {
+
+    // Obtain the selected group id
+    let goalId = e.target.dataset.goal;
+
+    // Obtain goal information through an ajax request
+    $.ajax({
+      method: 'GET',
+      url: `/goals/${goalId}`,
+      dataType: 'json',
+      success: function(data) {
+        setFundedAmount(data.funded_amount);
+        $("#headingGoalName").html(data.goal_name);
+        $("#persContribution").html(data.contrib);
+        $(".hdnGoalId").val(data.goal_id);
+      },
+      error: function(data) {
+        alert(data.innerText);
+      }
+    });
+  });
 });
+
+function setFundedAmount(fundedAmount) {
+  let progressBar = $('#bar');
+  if (fundedAmount > 100) {
+    progressBar.css('height', '100%');
+    progressBar.show();
+  }
+  else if (fundedAmount == 0) {
+    progressBar.css('height', '0%');
+    progressBar.hide();
+  }
+  else {
+    progressBar.css('height', fundedAmount + '%');
+    progressBar.show();
+  }
+  $("#progressText").html(`${Math.round(fundedAmount)}%`);
+}

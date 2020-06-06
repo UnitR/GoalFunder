@@ -4,17 +4,12 @@
 
 <% if @first_goal %>
 <div class="Dashboard">
-  <% if @first_goal %>
-    <input type="hidden" id="hdnGroupId" value="<%= @first_goal.group_id %>"/>
-  <% else %>
-    <input type="hidden" id="hdnGroupId" value="0"/>
-  <% end %>
   <div id="content" class="container" style="  margin-top: 13%; margin-left: 7%;">
     <div class="row">
       <div class="float-box-left">
         <div class="col-md-2">
-          <h2 class="grp-list">
-            Group List
+          <h2 class="goal-list">
+             Goals List
           </h2>
           <div class="table-responsive">
             <table id="productSizes" class="table">
@@ -22,7 +17,7 @@
               <% if @first_goal %>
                 <% @goals.each do |goal| %>
                   <tr>
-                    <td class="grp-list" data-group="<%= goal[0].group_id %>"><%= goal[0].group_name %></td>
+                    <td class="goal-list" data-goal="<%= goal.goal_id %>"><%= goal.goal_name %></td>
                   </tr>
                 <% end %>
               <% end %>
@@ -40,9 +35,10 @@
               <!-- progress bar -->
               <% if @first_goal %>
                 <div class="bar-container" id="myDiv">
-                  <div class="bar" id="bar" style="height: <%= [@first_goal.contr_amount, 100].min %>%">
+                  <% funded = (@first_goal.contr_amount / @first_goal.goal_target * 100).round %>
+                  <div class="bar" id="bar" style="height: <%= [funded, 100].min %>%">
                     <div class="text" id="progressText" style="transform: rotate(180deg)">
-                      <%= (@first_goal.contr_amount / @first_goal.goal_target * 100).round %>%
+                      <%= funded %>%
                     </div>
                   </div>
                 </div>
@@ -51,8 +47,8 @@
             <div class="col-md-8">
               <% if @first_goal %>
                 <h3 id="grp-name-payment">
-                  <span id='headingGroupName'>
-                    <%= @first_goal.group_name %>
+                  <span id='headingGoalName'>
+                    <%= @first_goal.goal_name %>
                   </span>
                   <br>
                   Goal Contributions
@@ -230,7 +226,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="confGoal">Create</button>
+        <button type="button" class="btn btn-primary" id="confGoal" data-target="pers_goal">Create</button>
       </div>
     </div>
   </div>

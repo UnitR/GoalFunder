@@ -33,7 +33,8 @@ class PaymentProcessingController < ApplicationController
           end
 
           # Broadcast
-          ActionCable.server.broadcast 'payments', content: funded_percent
+          broadcast_content = {goal_id: @payment.goal_id, funded: funded_percent}
+          ActionCable.server.broadcast 'payments', content: broadcast_content.to_json
 
           # Respond
           format.html {

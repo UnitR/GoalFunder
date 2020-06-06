@@ -37,7 +37,7 @@ background-attachment: fixed;
   min-width: 200px;
 }
 
-.grp-list{
+.grp-list, .goal-list {
   margin: 10%;
 }
 
@@ -197,7 +197,7 @@ th {
   padding: 1%;
 }
 
-td.grp-list{
+td.grp-list, td.goal-list {
   font-size: 20px;
   cursor: pointer;
 }

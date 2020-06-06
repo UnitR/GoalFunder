@@ -10,6 +10,13 @@ consumer.subscriptions.create("PaymentChannel", {
   },
 
   received(data) {
+
+    let oDataContent = JSON.parse(data.content)
+    if ($('#hdnGoalId').val != oDataContent.goal_id) {
+      // Incorrect ID
+      return;
+    }
+
     // Get progress element and update
     let progressBar = $('#bar');
 
@@ -17,12 +24,14 @@ consumer.subscriptions.create("PaymentChannel", {
     if (!progressBar)
       return;
 
-    if (data.content > 100) {
+    let progress = Math.round(oDataContent.funded)
+
+    if (progress > 100) {
       progressBar.css('height', '100%');
     }
     else {
-      progressBar.css('height', data.content + '%');
+      progressBar.css('height', progress + '%');
     }
-    $('#progressText').html(`${Math.round(data.content)}%`);
+    $('#progressText').html(`${progress}%`);
   }
 });

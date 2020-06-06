@@ -117,7 +117,7 @@
               <text x="100%" y="20%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">
                 Your Contribution
                 <tspan class="em" x="60%" y="50%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">£</tspan>
-                <tspan id="persContribution" class="em" x="100%" y="60%" text-anchor="middle" fill="white" font-size="40px" font-family="Arial" dy=".3em"><%= @first_goal.contr_amount.round %></tspan>
+                <tspan id="persContribution" class="em" x="100%" y="60%" text-anchor="middle" fill="white" font-size="40px" font-family="Arial" dy=".3em"><%= @first_goal.contr_amount.round if @first_goal%></tspan>
               </text>
             </svg>
           </div>
@@ -130,7 +130,7 @@
               <text x="100%" y="20%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">
                 Goal Target
                 <tspan class="em" x="60%" y="50%" text-anchor="middle" fill="white" font-size="20px" font-family="Arial" dy=".3em">£</tspan>
-                <tspan id="persContribution" class="em" x="100%" y="60%" text-anchor="middle" fill="white" font-size="40px" font-family="Arial" dy=".3em"><%= @first_goal.goal_target.round %></tspan>
+                <tspan id="persContribution" class="em" x="100%" y="60%" text-anchor="middle" fill="white" font-size="40px" font-family="Arial" dy=".3em"><%= @first_goal.goal_target.round if @first_goal %></tspan>
               </text>
             </svg>
           </div>
@@ -161,7 +161,11 @@
               <% else %>
                 <input type="hidden" id="hdnUserId" value="0"/>
               <% end %>
-              <input type="hidden" id="hdnGoalId" value="<%= @first_goal.goal_id %>"/>
+              <% if @first_goal %>
+                <input type="hidden" id="hdnGoalId" value="<%= @first_goal.goal_id %>"/>
+              <% else %>
+                <input type="hidden" id="hdnGoalId" value="0"/>
+              <% end %>
             </div>
           </div>
         </div>
@@ -209,7 +213,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="confGoal">Create</button>
+          <button type="button" class="btn btn-primary" id="confGoal" data-target="group_goal">Create</button>
         </div>
       </div>
     </div>

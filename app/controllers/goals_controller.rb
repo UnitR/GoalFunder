@@ -5,27 +5,37 @@ class GoalsController < ApplicationController
   # GET /goals.json
   def index
     @goals = []
-    current_user.user_group_memberships.each do |ugm|
-      @goals << UserGoalsAll.where("group_id = #{ugm.group_id}")
+    @first_goal = nil
+    begin
+      @goals = []
+      current_user.user_group_memberships.each do |ugm|
+        @goals << UserGoalsAll.where("group_id = #{ugm.group_id}")
+      end
+      @first_goal = @goals.first().first()
+    rescue NoMethodError
     end
-    @first_goal = @goals.first().first()
   end
 
   def persGoals
     @goals = []
-    current_user.user_group_memberships.each do |ugm|
-      @goals << UserGoalsAll.where("user_id = #{current_user.id}")
+    @first_goal = nil
+    begin
+      @goals = UserGoalsAll.where("user_id = #{current_user.id}")
+      @first_goal = @goals.first()
+    rescue NoMethodError
     end
-    @first_goal = @goals.first().first()
   end
 
   # GET /goals/1
   # GET /goals/1.json
   def show
-    respond_to do |format|
-      format.html { render @goal }
-      format.json { render json: @goal.to_json(:include => [:goal_owner => {:include => [:user]}]) }
-    end
+    goal = UserGoalsAll.where("goal_id = #{params[:id]}").first
+    render json: {
+          funded_amount: goal.contr_amount / goal.goal_target * 100,
+          goal_name: goal.goal_name,
+          contrib: goal.contr_amount,
+          goal_id: goal.goal_id
+    }
   end
 
   # GET /goals/new
@@ -46,7 +56,7 @@ class GoalsController < ApplicationController
     @goal.keywords = goal_params['keywords']
 
     @goal_owner = GoalOwner.new
-    if goal_params['group_id'] > 0
+    if goal_params['target'] == 'group_goal'
       @goal_owner.group = Group.find(goal_params['group_id'])
     else
       @goal_owner.user = User.find(goal_params['user_id'])
@@ -96,6 +106,6 @@ class GoalsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def goal_params
-      params.permit(:goal_name, :goal_keywords, :goal_target, :group_id, :user_id)
+      params.permit(:goal_name, :goal_keywords, :goal_target, :group_id, :user_id, :target)
     end
 end

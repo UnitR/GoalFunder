@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_05_185005) do
+ActiveRecord::Schema.define(version: 2020_06_06_060748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -171,7 +171,7 @@ ActiveRecord::Schema.define(version: 2020_06_05_185005) do
       grp.id AS group_id,
       grp.name AS group_name,
       NULL::bigint AS user_id,
-      sum(p.amount) AS contr_amount
+      sum(COALESCE(p.amount, (0)::double precision)) AS contr_amount
      FROM (((((goals g
        LEFT JOIN goal_owners go ON ((g.id = go.goal_id)))
        LEFT JOIN groups grp ON ((grp.id = go.group_id)))
@@ -187,7 +187,7 @@ ActiveRecord::Schema.define(version: 2020_06_05_185005) do
       NULL::bigint AS group_id,
       NULL::character varying AS group_name,
       u.id AS user_id,
-      sum(p.amount) AS contr_amount
+      sum(COALESCE(p.amount, (0)::double precision)) AS contr_amount
      FROM (((goals g
        LEFT JOIN goal_owners go ON ((g.id = go.goal_id)))
        LEFT JOIN users u ON ((u.id = go.user_id)))
