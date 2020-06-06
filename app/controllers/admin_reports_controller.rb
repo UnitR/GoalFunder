@@ -8,7 +8,7 @@ class AdminReportsController < ApplicationController
     @report = GoalsReport.new(report_type: params[:report_type], date_generated: Time.now)
     @report.save
     @report_goals = @report.fetch_report_goals
-    render pdf: "Admin reports for Goal types: #{@report.report_type}",
+    render pdf: "goals_#{@report.report_type}_#{Time.now.strftime('%Y%m%d%H%M%S')}",
            page_size: 'A4',
            template: 'admin_reports/show.html.erb',
            layout: 'pdf.html',

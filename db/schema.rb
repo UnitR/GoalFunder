@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_06_060748) do
+ActiveRecord::Schema.define(version: 2020_06_06_115339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -149,21 +149,6 @@ ActiveRecord::Schema.define(version: 2020_06_06_060748) do
   add_foreign_key "user_group_memberships", "groups"
   add_foreign_key "user_group_memberships", "users"
 
-  create_view "report_goals", sql_definition: <<-SQL
-      SELECT g.name AS goal_name,
-      g.created_at AS goal_created_at,
-      g.target AS goal_target,
-      sum(p.amount) AS goal_funded,
-      u.last_name AS user_last_name,
-      u.first_name AS user_first_name,
-      u.email AS user_email,
-      g.keywords
-     FROM (((goals g
-       JOIN goal_owners go ON ((g.id = go.goal_id)))
-       JOIN payments p ON ((g.id = p.goal_id)))
-       JOIN users u ON ((go.user_id = u.id)))
-    GROUP BY g.name, g.created_at, g.target, u.last_name, u.first_name, u.email, g.keywords;
-  SQL
   create_view "user_goals_alls", sql_definition: <<-SQL
       SELECT g.id AS goal_id,
       g.name AS goal_name,
@@ -194,5 +179,22 @@ ActiveRecord::Schema.define(version: 2020_06_06_060748) do
        LEFT JOIN payments p ON ((p.user_id = u.id)))
     WHERE ((go.user_id IS NOT NULL) AND (go.group_id IS NULL))
     GROUP BY g.name, u.id, g.target, g.id;
+  SQL
+  create_view "report_goals", sql_definition: <<-SQL
+      SELECT g.name AS goal_name,
+      g.created_at AS goal_created_at,
+      g.target AS goal_target,
+      sum(COALESCE(p.amount, (0)::double precision)) AS goal_funded,
+      u.last_name AS user_last_name,
+      u.first_name AS user_first_name,
+      u.email AS user_email,
+      g.keywords,
+      grp.name AS group_name
+     FROM ((((goals g
+       JOIN goal_owners go ON ((g.id = go.goal_id)))
+       LEFT JOIN payments p ON ((g.id = p.goal_id)))
+       LEFT JOIN users u ON ((go.user_id = u.id)))
+       LEFT JOIN groups grp ON ((grp.id = go.group_id)))
+    GROUP BY g.name, g.created_at, g.target, u.last_name, u.first_name, u.email, g.keywords, grp.name;
   SQL
 end

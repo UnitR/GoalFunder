@@ -9,6 +9,7 @@
         <th>Target Amount</th>
         <th>Funded Amount</th>
         <th>% Funded</th>
+        <th>Group Name</th>
         <th>Keywords</th>
       </tr>
     </thead>
@@ -49,7 +50,10 @@
           <% end %>
         </td>
         <td>
-          <%= g.keywords.join(', ') %>
+          <%= g.group_name ? g.group_name : 'N/A' %>
+        </td>
+        <td>
+          <%= g.keywords.join(', ') if g.keywords %>
         </td>
       </tr>
     <% end %>

@@ -26,9 +26,10 @@ class GoalsReport < ApplicationRecord
   def get_reports_funded(return_funded)
     @report_goals = []
     ReportGoal.all.each do |goal|
-      if goal.goal_target == goal.goal_funded && return_funded
+      goal.goal_target = goal.goal_target ? goal.goal_target : 0
+      if goal.goal_target <= goal.goal_funded && return_funded
         @report_goals << goal
-      elsif goal.goal_target != goal.goal_funded && !return_funded
+      elsif goal.goal_target > goal.goal_funded && !return_funded
         @report_goals << goal
       end
     end
