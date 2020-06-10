@@ -33,3 +33,10 @@ $background_darkBlur: image_url('sky_blur2.png');
 #grey {
 background: $color3;
 }
+
+#dvPrivacy {
+  margin-top: 50px;
+  padding: 10px 15px;
+  text-align: left;
+  background: $background_blur !important;
+}

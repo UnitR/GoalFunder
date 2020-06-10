@@ -55,4 +55,6 @@ Rails.application.routes.draw do
              # :controllers => { :omniauth_callbacks => 'users/omniauth_callbacks' },
              # :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
 
+  get '/home/privacy_statement', to: 'home#privacy'
+
 end
