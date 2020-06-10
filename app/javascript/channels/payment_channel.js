@@ -12,7 +12,7 @@ consumer.subscriptions.create("PaymentChannel", {
   received(data) {
 
     let oDataContent = JSON.parse(data.content)
-    if ($('#hdnGoalId').val != oDataContent.goal_id) {
+    if (parseInt($('#hdnGoalId').val()) != oDataContent.goal_id) {
       // Incorrect ID
       return;
     }
