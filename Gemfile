@@ -51,7 +51,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Shrine gem for image file management
-gem "shrine", "~> 3.0"
+gem "shrine", "~> 3.3"
 
 # Bootstrap for better look
 gem 'bootstrap', '~> 4.4.1'
